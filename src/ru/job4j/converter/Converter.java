@@ -2,29 +2,29 @@ package ru.job4j.converter;
 
 public class Converter {
 
-    public static float rubleToEuro(float value) {
-        float rsl = value / 70;
+    public static double rubleToEuro(double value) {
+        double rsl = value / 70;
         return rsl;
     }
 
-    public static float rubleToDollar(float value) {
-        float rsl = value / 60;
+    public static double rubleToDollar(double value) {
+        double rsl = value / 60;
         return rsl;
     }
-    public static float rubleToRMB(float value){
-        float rsl = value * 1040 / 100;//10.40 не дал записать, выдал ошибку
+    public static double rubleToRMB(double value){
+        double rsl = value * 10.4;
         return rsl;
     }
-    public static float rubleToJPY(float value){
-        float rsl = value * 69 / 100; //0.69 не дал записать, выдал ошибку
+    public static double rubleToJPY(double value){
+        double rsl = value * 0.69;
         return rsl;
     }
 
     public static void main(String[] args) {
-        float euro = Converter.rubleToEuro(1000);
-        float dollar = Converter.rubleToDollar(1000);
-        float RMB = Converter.rubleToRMB(1000);
-        float JPY = Converter.rubleToJPY(1000);
+        double euro = Converter.rubleToEuro(1000);
+        double dollar = Converter.rubleToDollar(1000);
+        double RMB = Converter.rubleToRMB(1000);
+        double JPY = Converter.rubleToJPY(1000);
         System.out.println("1000 rubles are " + euro + " euro.");
         System.out.println("1000 rubles are " + dollar + " dollar");
         System.out.println("1000 rubles are " + RMB + " RMB");
