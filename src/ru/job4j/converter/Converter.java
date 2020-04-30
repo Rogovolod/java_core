@@ -11,11 +11,11 @@ public class Converter {
         double rsl = value / 60;
         return rsl;
     }
-    public static double rubleToRMB(double value){
+    public static double rubleToRMB(double value) {
         double rsl = value * 10.4;
         return rsl;
     }
-    public static double rubleToJPY(double value){
+    public static double rubleToJPY(double value) {
         double rsl = value * 0.69;
         return rsl;
     }
@@ -23,11 +23,11 @@ public class Converter {
     public static void main(String[] args) {
         double euro = Converter.rubleToEuro(1000);
         double dollar = Converter.rubleToDollar(1000);
-        double RMB = Converter.rubleToRMB(1000);
-        double JPY = Converter.rubleToJPY(1000);
+        double rmb = Converter.rubleToRMB(1000);
+        double jpy = Converter.rubleToJPY(1000);
         System.out.println("1000 rubles are " + euro + " euro.");
         System.out.println("1000 rubles are " + dollar + " dollar");
-        System.out.println("1000 rubles are " + RMB + " RMB");
-        System.out.println("1000 rubles are " + JPY + " JPY");
+        System.out.println("1000 rubles are " + rmb + " RMB");
+        System.out.println("1000 rubles are " + jpy + " JPY");
     }
 }
