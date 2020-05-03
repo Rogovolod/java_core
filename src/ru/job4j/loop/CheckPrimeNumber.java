@@ -8,7 +8,7 @@ public class CheckPrimeNumber {
             prime = false;
         }
         for (int index = 2; index <= number - 1; index++) {
-            if (number % 2 == 0 || number % (number - 1) == 0) {
+            if (number % index == 0) {
                 prime = false;
                 break;
             }
