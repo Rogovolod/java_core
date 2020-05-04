@@ -5,13 +5,11 @@ package ru.job4j.converter;
  * @param value - колличество рублей, которое нужно конвертировать.
  * @autor Savin Pavel
  */
-
 public class Converter {
 
     /**
      * содержит значение рублей и результат конвертации в евро
      */
-
     public static int rubleToEuro(int value) {
         int rsl = value / 70;
         return rsl;
@@ -20,7 +18,6 @@ public class Converter {
     /**
      * содержит значение рублей и результат конвертации в доллраы
      */
-
     public static int rubleToDollar(int value) {
         int rsl = value / 60;
         return rsl;
@@ -29,7 +26,6 @@ public class Converter {
     /**
      * содержит значение рублей и результат конвертации в юани
      */
-
     public static int rubleToRMB(int value) {
         int rsl = value / 10;
         return rsl;
@@ -38,7 +34,6 @@ public class Converter {
     /**
      * содержит значение рублей и результат конвертации в йены
      */
-
     public static int rubleToJPY(int value) {
         int rsl = value / 2;
         return rsl;
@@ -49,7 +44,6 @@ public class Converter {
      * @param args - args
      * @return main plus args
      */
-
     public static void main(String[] args) {
         int euro = Converter.rubleToEuro(140);
         int dollar = Converter.rubleToDollar(120);
@@ -63,7 +57,6 @@ public class Converter {
         /**
          * @test проверяет выводимое значение
          */
-
         int in = 140;
         int expected = 2;
         int out = rubleToEuro(in);
