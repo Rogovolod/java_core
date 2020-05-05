@@ -2,13 +2,14 @@ package ru.job4j.converter;
 
 /**
  * Converter. Конвертирует рубли в иностранную валюту.
- * @param value - колличество рублей, которое нужно конвертировать.
  * @autor Savin Pavel
  */
 public class Converter {
 
     /**
      * содержит значение рублей и результат конвертации в евро
+     * @param value - количество рублей, которое нужно конвертировать.
+     * @return rsl - результат конвертации в иностранной валюте
      */
     public static int rubleToEuro(int value) {
         int rsl = value / 70;
@@ -17,6 +18,8 @@ public class Converter {
 
     /**
      * содержит значение рублей и результат конвертации в доллраы
+     * @param value - количество рублей, которое нужно конвертировать.
+     * @return rsl - результат конвертации в иностранной валюте
      */
     public static int rubleToDollar(int value) {
         int rsl = value / 60;
@@ -25,6 +28,8 @@ public class Converter {
 
     /**
      * содержит значение рублей и результат конвертации в юани
+     * @param value - количество рублей, которое нужно конвертировать.
+     * @return rsl - результат конвертации в иностранной валюте
      */
     public static int rubleToRMB(int value) {
         int rsl = value / 10;
@@ -33,6 +38,8 @@ public class Converter {
 
     /**
      * содержит значение рублей и результат конвертации в йены
+     * @param value - количество рублей, которое нужно конвертировать.
+     * @return rsl - результат конвертации в иностранной валюте
      */
     public static int rubleToJPY(int value) {
         int rsl = value / 2;
