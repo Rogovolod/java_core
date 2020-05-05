@@ -39,7 +39,7 @@ public class FindLoopTest {
         int value = 2;
         int start = 2;
         int finish = 4;
-        int result = FindLoop.indexOf(input, value, start, finish);
+        int result = FindLoop.indexOfSF(input, value, start, finish);
         int expect = 3;
         assertThat(result, is(expect));
     }
@@ -49,7 +49,7 @@ public class FindLoopTest {
         int value = 4;
         int start = 0;
         int finish = 3;
-        int result = FindLoop.indexOf(input, value, start, finish);
+        int result = FindLoop.indexOfSF(input, value, start, finish);
         int expect = -1;
         assertThat(result, is(expect));
     }
