@@ -24,7 +24,6 @@ public class Merge {
                 j++;
             }
         }
-
         return rsl;
     }
 
