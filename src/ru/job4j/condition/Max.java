@@ -2,33 +2,23 @@ package ru.job4j.condition;
 
 public class Max {
 
+    public static int max(int first, int second) {
+        boolean condition = first > second;
+        int result = condition ? first : second;
+        return result;
+    }
+
     public static int max(int first, int second, int third) {
-        int rsl = 0;
-        if (first >= second && first >= third) {
-            rsl = first;
-        }
-        if (second >= first && second >= third) {
-           rsl = second;
-        }
-        if (third >= first && third >= second) {
-            rsl = third;
-        }
-        return rsl;
+        return max(
+                first,
+                max(second, third)
+        );
     }
 
     public static int max(int first, int second, int third, int fourth) {
         return max(
-                first, second,
+                first,
                 max(second, third, fourth)
         );
-    }
-
-/**
-* This old decision when max from 2
- * */
-    public static int max2(int left, int right) {
-        boolean condition = left > right;
-        int result = condition ? left : right;
-        return result;
     }
 }
