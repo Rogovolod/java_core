@@ -7,7 +7,10 @@ public class Animal {
         System.out.println("load animal");
     }
 
+    public Animal(String name) {
+    }
+
     public static void main(String[] args) {
-        Predator predator = new Predator();
+        Predator predator = new Predator("predator");
     }
 }
