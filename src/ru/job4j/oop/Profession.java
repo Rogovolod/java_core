@@ -1,10 +1,10 @@
 package ru.job4j.oop;
 
 public class Profession {
-    String name;
-    String surname;
-    String education;
-    String birthday;
+    private String name;
+    private String surname;
+    private String education;
+    private String birthday;
 
     public static void get(String getName) {
     }

@@ -2,7 +2,7 @@ package ru.job4j.oop;
 
 public class Programmer extends Engineer {
 
-    String java;
+    private String java;
 
     public void coding() {
 
