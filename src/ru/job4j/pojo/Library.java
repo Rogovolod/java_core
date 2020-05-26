@@ -31,7 +31,7 @@ public class Library {
             System.out.println("Find book named Clean code:");
         for (int index = 0; index < bks.length; index++) {
             Book bk = bks[index];
-            if (bk.getName() == "Clean code") {
+            if (bk.getName().equals("Clean code")) {
                 System.out.println(bk.getName());
             }
         }
