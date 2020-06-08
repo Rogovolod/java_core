@@ -25,14 +25,13 @@ public class Tracker {
 
     public Item[] findByName(String key) {
         int count = 0;
-        String[] temp = new String[this.position];
+        Item[] temp = new Item[this.position];
         for (int i = 0; i < temp.length; i++) {
             if (items[i].getName().equals(key)) {
-                temp[count] = items[i].getName();
-                count++;
+                temp[count++] = items[i];
             }
         }
-        return Arrays.copyOf(items, temp.length);
+        return Arrays.copyOf(temp, count);
     }
 
     public Item findById(String id) {
@@ -53,7 +52,7 @@ public class Tracker {
 
     public Item replace(String id, Item name) {
         int i = indexOf(id);
-        findById(id).getName().equals(name);
-        return items[i];
+        items[i] = name;
+        return true;
     }
     }
