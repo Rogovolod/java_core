@@ -50,18 +50,24 @@ public class Tracker {
         return rsl;
     }
 
-    public boolean replace(String id, Item name) {
-        int i = indexOf(id);
-        items[i] = name;
-        return true;
+    public boolean replace(String id, Item item) {
+        int index = indexOf(id);
+        boolean rsl = index != -1;
+        if (rsl) {
+            items[index] = item;
+        }
+        return rsl;
     }
 
     public boolean delete(String id) {
         int index = indexOf(id);
+        boolean rsl = index != -1;
+        if (rsl) {
         items[index] = null;
         System.arraycopy(items, index + 1, items, index, position - index);
         items[position - 1] = null;
         position--;
-        return true;
+        }
+        return rsl;
     }
     }
