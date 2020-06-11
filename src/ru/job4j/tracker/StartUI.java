@@ -66,7 +66,9 @@ public class StartUI {
                 String name = scanner.nextLine();
                 Item[] findN =  tracker.findByName(name);
                 if (findN.length > 0) {
-                        System.out.println(findN);
+                    for (int i = 0; i < findN.length; i++) {
+                        System.out.println(findN[i]);
+                    }
                 } else {
                     System.out.println("Tracker don't have this name.");
                 }
