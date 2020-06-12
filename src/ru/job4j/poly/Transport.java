@@ -1,7 +1,7 @@
 package ru.job4j.poly;
 
 public interface Transport {
-    String drive(String question);
-    int passenger(String question);
+    void drive(String[] args);
+    void passenger(String[] args);
     int fill(String question);
 }
