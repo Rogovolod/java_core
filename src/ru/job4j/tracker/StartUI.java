@@ -27,7 +27,6 @@ public class StartUI {
         System.out.println("Try to found: " + id);
         String name = input.askStr("Type new item: ");
         Item newItem = new Item(name);
-        tracker.replace(id, newItem);
         if (tracker.replace(id, newItem)) {
             System.out.println("Done.");
         } else {
@@ -38,7 +37,6 @@ public class StartUI {
     public static void deleteItem(Input input, Tracker tracker) {
         System.out.println("=== Delete item ====");
         String id = input.askStr("Enter item id you want delete: ");
-        tracker.delete(id);
         if (tracker.delete(id)) {
             System.out.println("Done.");
         } else {
