@@ -37,9 +37,9 @@ public class StartUI {
 
     public static void deleteItem(Input input, Tracker tracker) {
         System.out.println("=== Delete item ====");
-        String name = input.askStr("Enter item name you want delete: ");
-        tracker.delete(name);
-        if (tracker.delete(name)) {
+        String id = input.askStr("Enter item id you want delete: ");
+        tracker.delete(id);
+        if (tracker.delete(id)) {
             System.out.println("Done.");
         } else {
             System.out.println("Error.");
