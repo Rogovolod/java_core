@@ -69,4 +69,49 @@ public class StartUITest {
                 "Menu." + System.lineSeparator() + "0. Exit Program" + System.lineSeparator()
         ));
     }
+    @Test
+    public void whenShow() {
+        Output out = new StubOutput();
+        Input in = new StubInput(
+                new String[] {"0"}
+        );
+        Tracker tracker = new Tracker();
+        UserAction[] actions = {
+                new ShowAction(out)
+        };
+        new StartUI(out).init(in, tracker, actions);
+        assertThat(out.toString(), is(
+                "Menu." + System.lineSeparator() + "0. Tracker don't have any items." + System.lineSeparator()
+        ));
+    }
+    @Test
+    public void whenFindByID() {
+        Output out = new StubOutput();
+        Input in = new StubInput(
+                new String[] {"0"}
+        );
+        Tracker tracker = new Tracker();
+        UserAction[] actions = {
+                new FindIByIdAction(out)
+        };
+        new StartUI(out).init(in, tracker, actions);
+        assertThat(out.toString(), is(
+                "Menu." + System.lineSeparator() + "0. Enter item id you want find: " + System.lineSeparator()
+        ));
+    }
+    @Test
+    public void whenFindByName() {
+        Output out = new StubOutput();
+        Input in = new StubInput(
+                new String[] {"0"}
+        );
+        Tracker tracker = new Tracker();
+        UserAction[] actions = {
+                new FindByNameAction(out)
+        };
+        new StartUI(out).init(in, tracker, actions);
+        assertThat(out.toString(), is(
+                "Menu." + System.lineSeparator() + "0. Enter item name you want find: " + System.lineSeparator()
+        ));
+    }
 }
