@@ -27,6 +27,11 @@ public class Item {
     }
 
     @Override
+    public String toString() {
+    return String.format("#%s %s", id, name);
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
