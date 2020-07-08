@@ -5,7 +5,7 @@ public class FindEl {
         int rsl = -1;
         for (int i = 0; i < value.length; i++) {
             if (key == value[i]) {
-                rsl = 1;
+                break;
             }
         }
         if (rsl == -1) {
