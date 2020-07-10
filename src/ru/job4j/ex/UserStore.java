@@ -9,7 +9,7 @@ public class UserStore {
                 rsl = i;
                 break;
             }
-            if (rsl != i) {
+            if (rsl == -1) {
                 throw new UserNotFoundException("User not found.");
             }
         }
