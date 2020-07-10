@@ -23,7 +23,7 @@ public class UserStore {
         } else {
             rsl = true;
         }
-        if (user.getUsername().length < 3) {
+        if (User.getUsername().length < 3) {
                 throw new UserInvalidException("Name is too short.");
             } else {
             rsl = true;
