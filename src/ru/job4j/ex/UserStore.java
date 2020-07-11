@@ -1,5 +1,6 @@
 package ru.job4j.ex;
 
+
 public class UserStore {
 
     public static User findUser(User[] users, String login) throws UserNotFoundException {
@@ -20,7 +21,7 @@ public class UserStore {
         if (user.isValid()) {
             throw new UserInvalidException("User is not validate");
         }
-        if (user.getUsername().length < 3) {
+        if (user.getUsername().length() < 3) {
                 throw new UserInvalidException("Name is too short.");
             }
         return true;
