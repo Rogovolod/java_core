@@ -14,7 +14,7 @@ public class UserStore {
         if (rsl == -1) {
             throw new UserNotFoundException("User not found.");
         }
-        return null;
+        return users[rsl];
     }
 
     public static boolean validate(User user) throws UserInvalidException {
