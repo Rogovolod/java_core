@@ -10,20 +10,21 @@ public class PhoneDictionary {
     }
 
     public ArrayList<Person> find(String key) {
+        ArrayList<Person> rsl = new ArrayList<Person>();
         for (int i = 0; i < persons.size(); i++) {
             if (persons.get(i).getName().contains(key)) {
-                return persons;
+                rsl.add(persons.get(i));
             }
             if (persons.get(i).getSurname().contains(key)) {
-                return persons;
+                rsl.add(persons.get(i));
             }
             if (persons.get(i).getPhone().contains(key)) {
-                return persons;
+                rsl.add(persons.get(i));
             }
             if (persons.get(i).getAddress().contains(key)) {
-                return persons;
+                rsl.add(persons.get(i));
             }
         }
-        return null;
+        return rsl;
     }
 }
