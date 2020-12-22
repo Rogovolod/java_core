@@ -52,19 +52,7 @@ public class BankService {
 
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String destRequisite, double amount) {
-/*
-        Метод для перечисления денег с одного счёта на другой счёт.
-        Если счёт не найден или не хватает денег на счёте srcAccount (с которого переводят), то метод должен вернуть false.
 
-                Посмотрите на методы Map.putIfAbsent и List.contains, как их можно применить в этом задании.
-
-        Метод putIfAbsent позволяет проверить, если ли такой ключ в карте или нет и если его нет, то произвести вставку данных.
-                Этот метод позволяет уменьшить количество кода.
-
-                Метод List.indexOf позволяет найти индекс элемента по значению. Проверка элементов в этом методе происходит по методу equals.
-                Обратите внимание, что в моделях User и Account используется только одно поле passport и requisite для сравнения объектов.
-                Это позволяет использовать эти методы, без информации о всех полях.
-*/
         User susr = findByPassport(srcPassport);
         User durs = findByPassport(destPassport);
 
@@ -87,24 +75,6 @@ public class BankService {
         users.putIfAbsent(durs, list2);
 
         return true;
-    }
-
-    public static void main(String[] args) {
-/*        List<Account> accounts = new ArrayList<>();
-        String requisite = "3fdsbb9";
-        accounts.add(new Account("3fdsbb9", 140));
-        int index = accounts.indexOf(new Account(requisite, -1));
-        Account find = accounts.get(index);
-        System.out.println(find.getRequisite() + " -> " + find.getBalance());*/
-
-        User user = new User("322110", "Pavel Savin");
-        BankService bank = new BankService();
-        bank.addUser(user);
-        bank.addAccount(user.getPassport(), new Account("8000 2384 9876", 500D));
-        bank.addAccount(user.getPassport(), new Account("8000 2384 9880", 0D));
-        bank.transferMoney(user.getPassport(), "8000 2384 9876", user.getPassport(), "8000 2384 9880", 250D);
-        System.out.println("Баланс первой карты 9876: " + bank.findByRequisite(user.getPassport(), "8000 2384 9876").getBalance());
-        System.out.println("Баланс второй карты 9880: " + bank.findByRequisite(user.getPassport(), "8000 2384 9880").getBalance());
     }
 
     @Override
