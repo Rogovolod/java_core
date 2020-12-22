@@ -10,20 +10,20 @@ public class BankService {
     private Map<User, List<Account>> users = new HashMap<>();
 
     public void addUser(User user) {
-        if (!users.containsKey(user)) {
-            users.put(user, new ArrayList<Account>());
-        } else {
-            System.out.println("User is already exist!");
-        }
+            users.putIfAbsent(user, new ArrayList<Account>());
     }
 
     public void addAccount(String passport, Account account) {
-        User usr = findByPassport(passport);
+        if (findByPassport(passport) != null) {
+            User usr = findByPassport(passport);
             List<Account> acc = users.get(usr);
             if (!acc.contains(account)) {
                 acc.add(account);
                 users.put(usr, acc);
             }
+        } else {
+            System.out.println("Can't find user by passport.");
+        }
     }
 
     public User findByPassport(String passport) {
@@ -53,26 +53,15 @@ public class BankService {
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String destRequisite, double amount) {
 
-        User susr = findByPassport(srcPassport);
-        User durs = findByPassport(destPassport);
-
-        List<Account> list1 = new ArrayList<Account>();
-        List<Account> list2 = new ArrayList<Account>();
-
         Account srs = findByRequisite(srcPassport, srcRequisite);
         Account dest = findByRequisite(destPassport, destRequisite);
 
-        if (srs.getBalance() < amount) {
+        if (srs.getBalance() < amount || srs == null || dest == null) {
             return false;
         }
 
         srs.setBalance(srs.getBalance() - amount);
         dest.setBalance(dest.getBalance() + amount);
-        list1.add(srs);
-        users.putIfAbsent(susr, list1);
-
-        list2.add(dest);
-        users.putIfAbsent(durs, list2);
 
         return true;
     }
