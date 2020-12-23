@@ -19,7 +19,6 @@ public class BankService {
             List<Account> acc = users.get(usr);
             if (!acc.contains(account)) {
                 acc.add(account);
-                users.put(usr, acc);
             }
         } else {
             System.out.println("Can't find user by passport.");
