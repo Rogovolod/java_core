@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import static org.hamcrest.Matchers.lessThan;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
 public class JobTest {
@@ -15,13 +16,22 @@ public class JobTest {
     Job job3 = new Job("C Impl task", 1);
     Job job4 = new Job("D Drink some tea", 2);
     @Test
-    public void whenCompatorByNameAndPrority() {
+    public void whenComparatorByNameAndPriority() {
         Comparator<Job> cmpNamePriority = new JobDescByName().thenComparing(new JobDescByPriority());
         int rsl = cmpNamePriority.compare(
                 new Job("Impl task", 0),
                 new Job("Fix bug", 1)
         );
         assertThat(rsl, lessThan(0));
+    }
+    @Test
+    public void whenComparatorByNameAndPriorityWithSameNames() {
+        Comparator<Job> cmpNamePriority = new JobDescByName().thenComparing(new JobDescByPriority());
+        int rsl = cmpNamePriority.compare(
+                new Job("Fix bug", 1),
+                new Job("Fix bug", 0)
+        );
+        assertEquals(-1, rsl);
     }
     @Test
     public void whenComparatorByNameD() {
