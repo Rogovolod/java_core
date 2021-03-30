@@ -1,6 +1,6 @@
 <project>
     <modelVersion>4.0.0</modelVersion>
-    <groupId>ru.job4j</groupId>
+    <groupId>ru.core</groupId>
     <artifactId>Java_Core</artifactId>
     <packaging>jar</packaging>
     <version>2.0</version>
