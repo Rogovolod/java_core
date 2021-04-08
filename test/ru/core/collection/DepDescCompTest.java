@@ -1,0 +1,40 @@
+package ru.core.collection;
+
+import org.junit.Ignore;
+import org.junit.Test;
+
+import static org.hamcrest.Matchers.lessThan;
+import static org.junit.Assert.*;
+import static org.hamcrest.Matchers.greaterThan;
+
+public class DepDescCompTest {
+
+    @Test
+    @Ignore
+    public void compare() {
+        int rsl = new DepDescComp().compare(
+                "K2/SK1/SSK2",
+                "K2/SK1/SSK1"
+        );
+        assertThat(rsl, greaterThan(0));
+    }
+
+    @Test
+    @Ignore
+    public void whenUpDepartmentGoBefore() {
+        int rsl = new DepDescComp().compare(
+                "K2",
+                "K2/SK1"
+        );
+        assertThat(rsl, lessThan(0));
+    }
+
+    @Test
+    public void whenUpDepartmentGoBefore2() {
+        int rsl = new DepDescComp().compare(
+                "K2",
+                "K1"
+        );
+        assertThat(rsl, lessThan(0));
+    }
+}
