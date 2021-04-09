@@ -1,6 +1,5 @@
 package ru.core.collection;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.lessThan;
@@ -10,7 +9,6 @@ import static org.hamcrest.Matchers.greaterThan;
 public class DepDescCompTest {
 
     @Test
-    @Ignore
     public void compare() {
         int rsl = new DepDescComp().compare(
                 "K2/SK1/SSK2",
@@ -20,7 +18,6 @@ public class DepDescCompTest {
     }
 
     @Test
-    @Ignore
     public void whenUpDepartmentGoBefore() {
         int rsl = new DepDescComp().compare(
                 "K2",
