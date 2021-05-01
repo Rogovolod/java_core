@@ -7,9 +7,8 @@ public class Rps {
     public static void main(String[] args) {
         String[] data = new String[]{"камень", "ножницы", "бумагу"};
         Random rnd = new Random();
-        boolean endless = true;
         System.out.println("=== Добро пожаловать! ===");
-        System.out.println("Введите: камень, ножницы или бумага, чтобы сыграть. Играем до трёх побед.");
+        System.out.println("Введите: камень, ножницы или бумага, чтобы сыграть. Победите три раза, чтобы стать чемпионом.");
         System.out.println("Если хотите выйте введите: -1");
         Scanner scanner = new Scanner(System.in);
         String input;
@@ -27,7 +26,7 @@ public class Rps {
                         loose = 0;
                         System.out.println("Начнём снова!");
                         System.out.println("=============================");
-                        System.out.println("Введите: камень, ножницы или бумага, чтобы сыграть. Играем до трёх побед.");
+                        System.out.println("Введите: камень, ножницы или бумага, чтобы сыграть. Победите три раза, чтобы стать чемпионом.");
                         break;
                     }
                     if (input.equals("нет")) {
@@ -37,7 +36,7 @@ public class Rps {
                         System.out.println("Неверный ввод");
                     }
                 }
-                while (endless);
+                while (true);
             }
             if (wins >= 3) {
                 System.out.println("Поздравляем! Время праздновать победу!");
@@ -49,7 +48,7 @@ public class Rps {
                         loose = 0;
                         System.out.println("Начнём снова!");
                         System.out.println("=============================");
-                        System.out.println("Введите: камень, ножницы или бумага, чтобы сыграть. Играем до трёх побед.");
+                        System.out.println("Введите: камень, ножницы или бумага, чтобы сыграть. Победите три раза, чтобы стать чемпионом.");
                         break;
                     }
                     if (input.equals("нет")) {
@@ -59,7 +58,7 @@ public class Rps {
                         System.out.println("Неверный ввод");
                     }
                 }
-                while (endless);
+                while (true);
             }
             input = scanner.next();
             int number = rnd.nextInt(3);
