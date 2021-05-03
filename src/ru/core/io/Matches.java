@@ -11,11 +11,11 @@ public class Matches {
         System.out.println("Выигрывает тот, кто забрал последние спички.");
         System.out.println("*****ПОЕХАЛИ!*****");
         while (count > 0) {
-            System.out.println(String.format("Ходит игрок %s", player ? "1" : "2"));
-            int select = Integer.valueOf(in.nextLine());
-            while (select < 0 ||  select > 3) {
+            System.out.printf("Ходит игрок %s%n", player ? "1" : "2");
+            int select = Integer.parseInt(in.nextLine());
+            while (select <= 0 ||  select > 3) {
                 System.out.println("Действие невозможно, пожалуйста повторите ввод.");
-                select = Integer.valueOf(in.nextLine());
+                select = Integer.parseInt(in.nextLine());
             }
             count -= select;
             player = !player;

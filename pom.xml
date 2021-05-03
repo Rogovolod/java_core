@@ -4,7 +4,7 @@
     <artifactId>java_core</artifactId>
     <packaging>jar</packaging>
     <version>2.0</version>
-    <url>http://job4j.ru/</url>
+
 
     <properties>
         <maven.compiler.source>14</maven.compiler.source>
