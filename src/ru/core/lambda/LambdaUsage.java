@@ -9,7 +9,7 @@ import java.util.Comparator;
 
 public class LambdaUsage {
 
-    public static String[] s = new String[]{"b", "a", "d", "c"};
+    public static String[] s = new String[]{"b", "f", "d", "c", "e", "g", "a"};
 
     public  static Comparator<String> cmpDescSize = (left, right) -> {
         System.out.println("compare - " + left + " : " + right);
@@ -23,7 +23,7 @@ public class LambdaUsage {
 
     @Test
     public void mainTest() {
-        String[] a = new String[]{"d", "c", "b", "a"};
+        String[] a = new String[]{"g", "f", "e", "d", "c", "b", "a"};
         Arrays.sort(s, cmpDescSize);
         assertArrayEquals(a, s);
     }
