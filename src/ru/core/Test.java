@@ -1,16 +1,24 @@
 package ru.core;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Scanner;
+
 public class Test {
 
-    static String str = "Hello";
-
-    public static void change(String s) {
-    s = "world";
-}
 
     public static void main(String[] args) {
-        System.out.println(str);
-        change(str);
-        System.out.println(str);
+        Scanner scanner = new Scanner(System.in);
+        String n = scanner.nextLine();
+        scanner.close();
+        BigInteger b = new BigInteger(n);
+        if (b.isProbablePrime(1)) {
+            System.out.println("prime");
+        } else {
+            System.out.println("not prime");
+        }
     }
 }
