@@ -1,24 +1,37 @@
 package ru.core;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Scanner;
+import java.math.*;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.*;
 
 public class Test {
 
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        String n = scanner.nextLine();
-        scanner.close();
-        BigInteger b = new BigInteger(n);
-        if (b.isProbablePrime(1)) {
-            System.out.println("prime");
-        } else {
-            System.out.println("not prime");
-        }
+    public static void main(String[] args) throws NoSuchAlgorithmException {
+
+        Scanner sc = new Scanner(System.in);
+        String s = sc.next();
+
+        MessageDigest digest = MessageDigest.getInstance("SHA-256");
+        byte[] encodedhash = digest.digest(s.getBytes(StandardCharsets.UTF_8));
+
+        System.out.println(Test.bytesToHex(encodedhash));
+
     }
+
+    public static String bytesToHex(byte[] hash) {
+        StringBuilder hexString = new StringBuilder(2 * hash.length);
+        for (int i = 0; i < hash.length; i++) {
+            String hex = Integer.toHexString(0xff & hash[i]);
+            if(hex.length() == 1) {
+                hexString.append('0');
+            }
+            hexString.append(hex);
+        }
+        return hexString.toString();
+    }
+
+
 }
