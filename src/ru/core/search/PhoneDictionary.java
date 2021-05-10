@@ -22,7 +22,14 @@ public class PhoneDictionary {
     }
 
     public ArrayList<Person> find(String key) {
-        Predicate<Person> combine = x -> x.getName().contains(key) || x.getSurname().contains(key) || x.getPhone().contains(key) || x.getAddress().contains(key);
+
+        Predicate<Person> checkByName = x -> x.getName().contains(key);
+        Predicate<Person> checkBySurname = x -> x.getSurname().contains(key);
+        Predicate<Person> checkByPhone = x -> x.getPhone().contains(key);
+        Predicate<Person> checkByAddress = x -> x.getAddress().contains(key);
+
+        Predicate<Person> combine = checkByName.or(checkBySurname).or(checkByPhone).or(checkByAddress);
+
         ArrayList<Person> result = new ArrayList<>();
         for (Person person : persons) {
             if (combine.test(person)) {
