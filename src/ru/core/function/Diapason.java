@@ -8,8 +8,8 @@ public class Diapason {
 
     public  static  List<Double> diapason(int start, int end, Function<Double, Double> func) {
         var rsl = new ArrayList<Double>();
-        for (double i = start; i < end; i++) {
-            rsl.add(func.apply(i));
+        for (int i = start; i < end; i++) {
+            rsl.add(func.apply((double) i));
         }
         return rsl;
     }
