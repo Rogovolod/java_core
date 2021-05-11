@@ -1,6 +1,7 @@
 package ru.core.stream;
 
 import org.junit.Test;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
@@ -10,11 +11,11 @@ public class ProfilesTest {
 
     @Test
     public void collectTest() {
-        var one = new Address("St.Peterburg","Pushkina", 15, 15);
-        var two = new Address("Moskow","Lomonosova", 35, 256);
-        var three = new Address("Oslo","Gyermunbu", 12, 0);
-        var four = new Address("Oslo","Gyermunbu", 12, 0);
-        var five = new Address("Moskow","Lomonosova", 35, 256);
+        var one = new Address("St.Peterburg", "Pushkina", 15, 15);
+        var two = new Address("Moskow", "Lomonosova", 35, 256);
+        var three = new Address("Oslo", "Gyermunbu", 12, 0);
+        var four = new Address("Oslo", "Gyermunbu", 12, 0);
+        var five = new Address("Moskow", "Lomonosova", 35, 256);
 
         var rsl = new ArrayList<Profile>();
         rsl.add(new Profile(one));
