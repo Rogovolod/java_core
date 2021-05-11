@@ -20,9 +20,9 @@ public class ProfilesTest {
         rsl.add(new Profile(three));
 
         var exp = new ArrayList<Address>();
-        exp.add(one);
         exp.add(two);
         exp.add(three);
+        exp.add(one);
 
         var profiles = new Profiles();
 
