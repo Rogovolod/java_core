@@ -1,6 +1,7 @@
 package ru.core.map;
 
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 
 public class Main {
@@ -13,10 +14,10 @@ public class Main {
                 )
         );
         College college = new College(students);
-        Student student = college.findByAccount("000001");
+        Optional<Student> student = college.findByAccount("000001");
         System.out.println("Найденный студент: " + student);
-        Subject english = college.findBySubjectName("000001", "English");
-        System.out.println("Оценка по найденному предмету: " + english.getScore());
+        Optional<Subject> english = college.findBySubjectName("000001", "English");
+        System.out.println("Оценка по найденному предмету: " + english.get().getScore());
     }
 
 }
