@@ -5,14 +5,14 @@ import java.util.function.Predicate;
 
 public class PhoneDictionary {
 
-    private ArrayList<Person> persons = new ArrayList<Person>();
+    private ArrayList<Person> persons = new ArrayList<>();
 
     public void add(Person person) {
         this.persons.add(person);
     }
 
     public ArrayList<Person> findOld(String key) {
-        ArrayList<Person> rsl = new ArrayList<Person>();
+        var rsl = new ArrayList<Person>();
         for (int i = 0; i < persons.size(); i++) {
             if (persons.get(i).getName().contains(key) || persons.get(i).getSurname().contains(key) || persons.get(i).getPhone().contains(key) || persons.get(i).getAddress().contains(key)) {
                 rsl.add(persons.get(i));
@@ -30,7 +30,7 @@ public class PhoneDictionary {
 
         Predicate<Person> combine = checkByName.or(checkBySurname).or(checkByPhone).or(checkByAddress);
 
-        ArrayList<Person> result = new ArrayList<>();
+        var result = new ArrayList<Person>();
         for (Person person : persons) {
             if (combine.test(person)) {
                 result.add(person);
