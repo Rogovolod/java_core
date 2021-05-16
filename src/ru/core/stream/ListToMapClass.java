@@ -11,7 +11,7 @@ public class ListToMapClass {
                 .collect(Collectors.toMap(
                         Student::getSurname,
                         e -> e,
-                        (f, s) -> f));
+                        (f, s) -> s));
     }
 
 }

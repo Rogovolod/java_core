@@ -1,6 +1,5 @@
 package ru.core.stream;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -13,8 +12,7 @@ import static org.junit.Assert.*;
 public class ListToMapTest {
 
     @Test
-    @Ignore
-    public void listMapTest() { //TODO CHECK THIS SHIT!!
+    public void listMapTest() {
         var s1 = new Student(50, "Popov");
         var s2 = new Student(70, "Petrov");
         var s3 = new Student(34, "Ivanov");
