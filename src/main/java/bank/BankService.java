@@ -1,9 +1,6 @@
 package bank;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class BankService {
 
@@ -14,9 +11,9 @@ public class BankService {
     }
 
     public void addAccount(String passport, Account account) {
-        User usr = findByPassport(passport);
-        if (usr != null) {
-            List<Account> acc = users.get(usr);
+        Optional<User> usr = findByPassport(passport);
+        if (usr.isPresent()) {
+            List<Account> acc = users.get(usr.get());
             if (!acc.contains(account)) {
                 acc.add(account);
             }
@@ -25,38 +22,36 @@ public class BankService {
         }
     }
 
-    public User findByPassport(String passport) {
+    public Optional<User> findByPassport(String passport) {
         return users.keySet()
                 .stream()
                 .filter(s -> s.getPassport().equals(passport))
-                .findFirst()
-                .orElse(null);
+                .findFirst();
     }
 
-    public Account findByRequisite(String passport, String requisite) {
-        User user = findByPassport(passport);
-        if (user == null) {
-            return null;
+    public Optional<Account> findByRequisite(String passport, String requisite) {
+        Optional<User> user = findByPassport(passport);
+        if (user.isEmpty()) {
+            return Optional.empty();
         }
-        return users.get(user)
+        return users.get(user.get())
                 .stream()
                 .filter(s -> s.getRequisite().equals(requisite))
-                .findFirst()
-                .orElse(null);
+                .findFirst();
     }
 
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String destRequisite, double amount) {
 
-        Account srs = findByRequisite(srcPassport, srcRequisite);
-        Account dest = findByRequisite(destPassport, destRequisite);
+        Optional<Account> srs = findByRequisite(srcPassport, srcRequisite);
+        Optional<Account> dest = findByRequisite(destPassport, destRequisite);
 
-        if (srs == null || srs.getBalance() < amount || dest == null) {
+        if (srs.isEmpty() || srs.get().getBalance() < amount || dest.isEmpty()) {
             return false;
         }
 
-        srs.setBalance(srs.getBalance() - amount);
-        dest.setBalance(dest.getBalance() + amount);
+        srs.get().setBalance(srs.get().getBalance() - amount);
+        dest.get().setBalance(dest.get().getBalance() + amount);
 
         return true;
     }
