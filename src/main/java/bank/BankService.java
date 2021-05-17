@@ -34,10 +34,9 @@ public class BankService {
         if (user.isEmpty()) {
             return Optional.empty();
         }
-        return users.get(user.get())
-                .stream()
-                .filter(s -> s.getRequisite().equals(requisite))
-                .findFirst();
+        return user.flatMap(value -> users.get(value).stream()
+                .filter(e -> e.getRequisite().equals(requisite))
+                .findFirst());
     }
 
     public boolean transferMoney(String srcPassport, String srcRequisite,
@@ -45,10 +44,6 @@ public class BankService {
 
         Optional<Account> srs = findByRequisite(srcPassport, srcRequisite);
         Optional<Account> dest = findByRequisite(destPassport, destRequisite);
-
-        if (srs.isEmpty() || srs.get().getBalance() < amount || dest.isEmpty()) {
-            return false;
-        }
 
         srs.get().setBalance(srs.get().getBalance() - amount);
         dest.get().setBalance(dest.get().getBalance() + amount);
