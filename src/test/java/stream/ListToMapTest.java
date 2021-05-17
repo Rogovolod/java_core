@@ -16,7 +16,7 @@ public class ListToMapTest {
         var s1 = new Student(50, "Popov");
         var s2 = new Student(70, "Petrov");
         var s3 = new Student(34, "Ivanov");
-        var s4 = new Student(46,"Vasiliev");
+        var s4 = new Student(46, "Vasiliev");
         var s5 = new Student(67, "Popov");
 
         var students = List.of(s1, s2, s3, s4, s5);
