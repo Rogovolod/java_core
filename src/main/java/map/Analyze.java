@@ -1,6 +1,7 @@
 package map;
 
 import java.util.Comparator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -27,11 +28,10 @@ public class Analyze {
     public static List<Tuple> averageScoreByPupil(Stream<Pupil> stream) {
         return stream
                 .flatMap(s -> s.getSubjects().stream())
-                .collect(Collectors.groupingBy(Subject::getName, Collectors.averagingDouble(Subject::getScore)))
+                .collect(Collectors.groupingBy(Subject::getName, LinkedHashMap::new, Collectors.averagingDouble(Subject::getScore)))
                 .entrySet()
                 .stream()
                 .map(s -> new Tuple(s.getKey(), s.getValue()))
-                .sorted((o1, o2) -> o2.getName().compareTo(o1.getName()))
                 .collect(Collectors.toList());
     }
 
@@ -40,7 +40,7 @@ public class Analyze {
                 .map(s -> new Tuple(s.getName(), s.getSubjects().stream()
                         .mapToInt(Subject::getScore)
                         .sum()))
-                .max(Comparator.comparingInt(o -> (int) o.getScore()))
+                .max(Comparator.comparingDouble(Tuple::getScore))
                 .orElse(null);
     }
 
@@ -52,7 +52,7 @@ public class Analyze {
                 .stream()
                 .map(s -> new Tuple(s.getKey(), s.getValue()))
                 .sorted((o1, o2) -> o2.getName().compareTo(o1.getName()))
-                .max(Comparator.comparingInt(o -> (int) o.getScore()))
+                .max(Comparator.comparing(Tuple::getScore))
                 .orElse(null);
     }
 }
