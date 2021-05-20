@@ -1,18 +1,15 @@
-
-
-import javax.swing.tree.TreeNode;
-import java.text.NumberFormat;
-import java.util.*;
-import java.util.Arrays.*;
+import java.util.List;
+import java.util.Scanner;
+import java.util.function.BiConsumer;
 
 public class Main {
+
+
     public static void main(String[] args) {
-        System.out.println("Илья");
-        System.out.println("01.10.1994");
-        pow(5);
+        var s = new Scanner(System.in);
+        var input = s.next();
+        System.out.print(input.equals(new StringBuilder(input).reverse().toString()) ? "Yes" : "No");
     }
 
-    static int pow(int a) {
-        return a * a;
-    }
 }
+
