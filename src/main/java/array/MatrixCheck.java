@@ -1,4 +1,4 @@
-package arrays;
+package array;
 
 public class MatrixCheck {
     public static boolean monoHorizontal(char[][] board, int row) {

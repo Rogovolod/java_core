@@ -1,4 +1,4 @@
-package arrays;
+package array;
 
 public class AlgoArray {
     public static void main(String[] args) {

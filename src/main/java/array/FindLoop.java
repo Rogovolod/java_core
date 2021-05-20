@@ -1,4 +1,4 @@
-package arrays;
+package array;
 
 public class FindLoop {
     public int indexOf(int[] data, int el) {

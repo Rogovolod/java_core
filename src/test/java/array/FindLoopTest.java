@@ -1,6 +1,5 @@
 package array;
 
-import arrays.FindLoop;
 import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;

@@ -1,4 +1,4 @@
-package arrays;
+package array;
 
 public class Defragment {
     public static String[] compress(String[] array) {

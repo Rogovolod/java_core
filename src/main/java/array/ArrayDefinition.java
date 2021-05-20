@@ -1,4 +1,4 @@
-package arrays;
+package array;
 
 public class ArrayDefinition {
     public static void main(String[] args) {

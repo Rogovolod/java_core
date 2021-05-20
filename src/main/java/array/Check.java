@@ -1,4 +1,4 @@
-package arrays;
+package array;
 
 public class Check {
     public static boolean mono(boolean[] data) {

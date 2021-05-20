@@ -1,6 +1,5 @@
 package array;
 
-import arrays.Min;
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;

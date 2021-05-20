@@ -1,4 +1,4 @@
-package arrays;
+package array;
 
 public class SwitchArray {
     public static int[] swap(int[] array, int source, int dest) {

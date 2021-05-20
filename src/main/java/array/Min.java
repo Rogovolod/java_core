@@ -1,4 +1,4 @@
-package arrays;
+package array;
 
 public class Min {
     public static int findMin(int[] array) {

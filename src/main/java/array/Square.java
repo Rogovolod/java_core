@@ -1,4 +1,4 @@
-package arrays;
+package array;
 
 public class Square {
     public static int[] calculate(int bound) {

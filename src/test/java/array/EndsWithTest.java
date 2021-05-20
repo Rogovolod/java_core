@@ -1,6 +1,5 @@
 package array;
 
-import arrays.EndsWith;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.is;

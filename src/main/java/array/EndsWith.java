@@ -1,4 +1,4 @@
-package arrays;
+package array;
 
 public class EndsWith {
     public static boolean endsWith(char[] word, char[] post) {

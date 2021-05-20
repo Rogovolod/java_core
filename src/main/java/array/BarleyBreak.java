@@ -1,4 +1,4 @@
-package arrays;
+package array;
 
 public class BarleyBreak {
     public static void main(String[] args) {

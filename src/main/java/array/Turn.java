@@ -1,4 +1,4 @@
-package arrays;
+package array;
 
 public class Turn {
     public static int[] back(int[] array) {
