@@ -25,7 +25,9 @@ public class JavaDequeue {
             set.add(input);
 
             if (deque.size() == m) {
-                if (set.size() > max) max = set.size();
+                if (set.size() > max) {
+                    max = set.size();
+                }
                 int first = deque.remove();
                 if (!deque.contains(first)) {
                     set.remove(first);
