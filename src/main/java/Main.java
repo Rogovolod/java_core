@@ -1,15 +1,14 @@
-import java.util.List;
-import java.util.Scanner;
-import java.util.function.BiConsumer;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 public class Main {
 
-
     public static void main(String[] args) {
-        var s = new Scanner(System.in);
-        var input = s.next();
-        System.out.print(input.equals(new StringBuilder(input).reverse().toString()) ? "Yes" : "No");
+        var currentMonthAndYear = LocalDateTime.now().format(DateTimeFormatter.ofPattern("LLLL yyyy", new Locale("ru")));
+        System.out.println(currentMonthAndYear);
     }
+
 
 }
 

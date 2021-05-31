@@ -2,7 +2,7 @@ package converter;
 
 /**
  * Converter. Конвертирует рубли в иностранную валюту.
- * @autor Savin Pavel
+ * @author Savin Pavel
  */
 public class Converter {
 
@@ -49,7 +49,6 @@ public class Converter {
     /**
      * Method main
      * @param args - args
-     * @return main plus args
      */
     public static void main(String[] args) {
         int euro = Converter.rubleToEuro(140);
