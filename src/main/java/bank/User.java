@@ -2,8 +2,19 @@ package bank;
 
 import java.util.Objects;
 
+/**
+ * Класс описывает пользователя банковскими услугами
+ * @author Rogovolod
+ * @version 1.0
+ */
 public class User {
+    /**
+     * поле passport содержит серию и номер паспорта пользователя
+     */
     private String passport;
+    /**
+     * поле username содержит ФИО пользователя
+     */
     private String username;
 
     public User(String passport, String username) {

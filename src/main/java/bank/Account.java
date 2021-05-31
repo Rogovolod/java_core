@@ -2,8 +2,20 @@ package bank;
 
 import java.util.Objects;
 
+/**
+ * Класс описывает аккаунт, который принадлежит пользователю
+ * У одного пользователя может быть несколько аккаунтов
+ * @author Rogovolod
+ * @version 1.0
+ */
 public class Account {
+    /**
+     * поле requisite хранит реквизиты аккаунта
+     */
     private String requisite;
+    /**
+     * поле balance отображает баланс доступных средств на счету пользователя
+     */
     private double balance;
 
     public Account(String requisite, double balance) {
