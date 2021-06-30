@@ -5,7 +5,7 @@ import java.net.URL;
 
 public class Url {
     public static void main(String[] args) throws IOException {
-        var url = new URL("http://www.google.com");
+        var url = new URL("http://government.ru/");
         System.out.println("Протокол: " + url.getProtocol());
         System.out.println("Порт: " + url.getPort());
         System.out.println("Хост: " + url.getHost());
