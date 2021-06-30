@@ -8,7 +8,5 @@ public class Main {
         var currentMonthAndYear = LocalDateTime.now().format(DateTimeFormatter.ofPattern("LLLL yyyy", new Locale("ru")));
         System.out.println(currentMonthAndYear);
     }
-
-
 }
 

@@ -3,7 +3,7 @@ package oop;
 public class Doctor extends Profession {
 
     private String diagnose;
-    private String pacient;
+    private String patient;
 
     public static void heal() {
     }
