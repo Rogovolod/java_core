@@ -1,8 +1,6 @@
 package net;
 
 import java.net.URL;
-import java.net.URLConnection;
-import java.util.Arrays;
 import java.util.Date;
 
 public class UrlC {
