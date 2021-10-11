@@ -10,20 +10,16 @@ public class Base64Decoder {
 
     public static void main(String[] args) throws IOException {
 
-//        var fis = new FileInputStream("src/main/java/base64/filesForDecoding/Base64TextForDecoding.txt");
-//        var base64Text = new Scanner(fis).nextLine().split(",")[1];
-//        fis.close();
-//
-//        byte[] decodedBytes = Base64.getDecoder().decode(base64Text);
-//
-//        var outputStream = new FileOutputStream("src/main/java/base64/decodedFiles/decoded");
-//        outputStream.write(decodedBytes);
-//        outputStream.close();
+        var fis = new FileInputStream("src/main/java/base64/filesForDecoding/Base64TextForDecoding.txt");
+        var base64Text = new Scanner(fis).nextLine().split(",")[1];
+        fis.close();
 
-        var a = "Юху!";
-        var b = Base64.getEncoder().encodeToString(a.getBytes());
-        System.out.println(b);
-        System.exit(-1);
+        byte[] decodedBytes = Base64.getDecoder().decode(base64Text);
+
+        var outputStream = new FileOutputStream("src/main/java/base64/decodedFiles/decoded");
+        outputStream.write(decodedBytes);
+        outputStream.close();
+
     }
 
 }
