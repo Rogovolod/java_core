@@ -11,7 +11,7 @@ public class Base64Decoder {
     public static void main(String[] args) throws IOException {
 
         var fis = new FileInputStream("src/main/java/base64/filesForDecoding/Base64TextForDecoding.txt");
-        var base64Text = new Scanner(fis).nextLine();
+        var base64Text = new Scanner(fis).nextLine().split(",")[1];
         fis.close();
 
         byte[] decodedBytes = Base64.getDecoder().decode(base64Text);
@@ -20,7 +20,6 @@ public class Base64Decoder {
         outputStream.write(decodedBytes);
         outputStream.close();
 
-        System.exit(-1);
     }
 
 }
