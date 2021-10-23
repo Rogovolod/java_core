@@ -32,7 +32,6 @@ public class SnakeGame extends JPanel implements ActionListener {
     JButton Button = new JButton("Do you want play again?");
 
     public SnakeGame() {
-
         img = Toolkit.getDefaultToolkit().createImage("src/main/resources/back.png");
         loadImages();
         initGame();
