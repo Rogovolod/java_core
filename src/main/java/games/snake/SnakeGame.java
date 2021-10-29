@@ -10,7 +10,7 @@ import java.util.Random;
 
 public class SnakeGame extends JPanel implements ActionListener {
 
-    private final int SIZE = 320;
+    private final int SIZE = 800;
     private final int DOT_SIZE = 16;
     private final int ALL_DOTS = 400;
     private Image dot;
@@ -20,15 +20,19 @@ public class SnakeGame extends JPanel implements ActionListener {
     private int[] x = new int[ALL_DOTS];
     private int[] y = new int[ALL_DOTS];
     private int dots;
-    private Timer timer;
+    private int delay = 250;
+    private Timer timer = new Timer(delay, this);
     private boolean left = false;
     private boolean right = true;
     private boolean up = false;
     private boolean down = false;
     private boolean inGame = true;
+    private int score = 0;
+    Image img;
+    JButton Button = new JButton("Do you want play again?");
 
     public SnakeGame() {
-        setBackground(Color.LIGHT_GRAY);
+        img = Toolkit.getDefaultToolkit().createImage("src/main/resources/back.png");
         loadImages();
         initGame();
         addKeyListener(new FieldKeyListener());
@@ -41,7 +45,6 @@ public class SnakeGame extends JPanel implements ActionListener {
             x[i] = 48 - i * DOT_SIZE;
             y[i] = 48;
         }
-        timer = new Timer(250, this);
         timer.start();
         createApple();
     }
@@ -52,26 +55,26 @@ public class SnakeGame extends JPanel implements ActionListener {
     }
 
     public void loadImages() {
-        ImageIcon iia = new ImageIcon("src/apple.png");
+        ImageIcon iia = new ImageIcon("src/main/resources/apple.png");
         apple = iia.getImage();
-        ImageIcon iid = new ImageIcon("src/dot.png");
+        ImageIcon iid = new ImageIcon("src/main/resources/snake.png");
         dot = iid.getImage();
     }
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+        g.drawImage(img, 0, 0, null);
         if (inGame) {
             g.drawImage(apple, appleX, appleY, this);
             for (int i = 0; i < dots; i++) {
                 g.drawImage(dot, x[i], y[i], this);
             }
         } else {
-            String str = "Game Over Loser!!";
-            //Font f = new Font("Arrial",16,Font.BOLD);
-            g.setColor(Color.red);
-            //g.setFont(f);
-            g.drawString(str, 125, SIZE / 2);
+            g.setColor(Color.BLACK);
+            g.setFont(new Font("Times New Roman", Font.BOLD, 30));
+            g.drawString("Game Over!", 290, 300);
+            g.drawString("Your score: " + score, 280, 330);
         }
 
     }
@@ -99,12 +102,15 @@ public class SnakeGame extends JPanel implements ActionListener {
         if (x[0] == appleX && y[0] == appleY) {
             dots++;
             createApple();
+            score += 5;
+            delay -= 5;
+            timer.setDelay(delay);
         }
     }
 
     public void checkCollisions() {
         for (int i = dots; i > 0; i--) {
-            if (i > 4 && x[0] == x[i] && y[0] == y[i]) {
+            if (x[0] == x[i] && y[0] == y[i]) {
                 inGame = false;
             }
         }
@@ -129,10 +135,11 @@ public class SnakeGame extends JPanel implements ActionListener {
             checkApple();
             checkCollisions();
             move();
-
         }
         repaint();
     }
+
+
 
     class FieldKeyListener extends KeyAdapter {
         @Override
