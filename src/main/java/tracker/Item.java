@@ -3,8 +3,10 @@ package tracker;
 import java.util.Objects;
 
 public class Item {
+
     private String id;
     private String name;
+    private String date;
 
     public Item(String name) {
         this.name = name;
@@ -26,9 +28,17 @@ public class Item {
         this.name = name;
     }
 
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
     @Override
     public String toString() {
-    return String.format("#%s %s", id, name);
+    return String.format("%s\n#ID: %s Name: %s", date, id, name);
     }
 
     @Override

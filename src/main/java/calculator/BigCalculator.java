@@ -21,6 +21,7 @@ public class BigCalculator {
             line = line.replace("-", " - ");
             line = line.replace("+", " + ");
             line = line.replace("/", " / ");
+            line = line.replace(".", ",");
             var out = new Scanner(line);
             try {
                 var first = out.nextBigDecimal();
@@ -39,7 +40,7 @@ public class BigCalculator {
             } catch (NoSuchElementException e) {
                 System.out.println("Wrong input, don't forget arithmetic sign and second number.");
             }
-
         }
     }
+
 }

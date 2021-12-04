@@ -1,6 +1,8 @@
 package tracker;
 
+import java.time.Instant;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Random;
 
 public class Tracker {
@@ -10,6 +12,7 @@ public class Tracker {
     private int position = 0;
 
     public Item add(Item item) {
+        item.setDate(generateDate());
         item.setId(generateId());
         items[position++] = item;
         return item;
@@ -17,6 +20,10 @@ public class Tracker {
     private String generateId() {
         Random rm = new Random();
         return String.valueOf(rm.nextLong() + System.currentTimeMillis());
+    }
+
+    private String generateDate() {
+        return (String.valueOf(Date.from(Instant.now())));
     }
 
     public Item[] findAll() {
