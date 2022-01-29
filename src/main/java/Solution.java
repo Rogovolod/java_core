@@ -1,3 +1,5 @@
+import array.ArrayChar;
+
 class Solution {
 
     public boolean isValid(String s) {
