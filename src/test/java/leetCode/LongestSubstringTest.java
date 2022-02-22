@@ -1,5 +1,6 @@
 package leetCode;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -47,6 +48,7 @@ public class LongestSubstringTest {
         assertEquals(expected, result);
     }
 
+    @Ignore
     @Test
     public void test7() {
         long time = System.currentTimeMillis();
