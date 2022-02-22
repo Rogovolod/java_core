@@ -2,6 +2,7 @@ package leetCode;
 
 import java.util.HashSet;
 
+//TODO: This don't pass last test. Need to rewrite
 public class LongestSubstring {
 
     public static int lengthOfLongestSubstring(String s) {

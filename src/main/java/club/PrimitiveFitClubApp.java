@@ -2,7 +2,7 @@ package club;
 
 import java.util.LinkedList;
 
-public class JavaProject {
+public class PrimitiveFitClubApp {
 
     public static void main(String[] args) {
         String mem;

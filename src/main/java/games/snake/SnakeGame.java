@@ -6,7 +6,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Random;
+import java.util.Scanner;
 
 public class SnakeGame extends JPanel implements ActionListener {
 
@@ -27,12 +32,14 @@ public class SnakeGame extends JPanel implements ActionListener {
     private boolean up = false;
     private boolean down = false;
     private boolean inGame = true;
-    private int score = 0;
+    private int score;
+    private final int bestScore = readBestScore();
+    private final String fileName = "src/main/java/games/snake/resources/bestscore.csv";
     Image img;
     JButton Button = new JButton("Do you want play again?");
 
     public SnakeGame() {
-        img = Toolkit.getDefaultToolkit().createImage("src/main/resources/back.png");
+        img = Toolkit.getDefaultToolkit().createImage("src/main/java/games/snake/resources/back.png");
         loadImages();
         initGame();
         addKeyListener(new FieldKeyListener());
@@ -55,9 +62,9 @@ public class SnakeGame extends JPanel implements ActionListener {
     }
 
     public void loadImages() {
-        ImageIcon iia = new ImageIcon("src/main/resources/apple.png");
+        ImageIcon iia = new ImageIcon("src/main/java/games/snake/resources/apple.png");
         apple = iia.getImage();
-        ImageIcon iid = new ImageIcon("src/main/resources/snake.png");
+        ImageIcon iid = new ImageIcon("src/main/java/games/snake/resources/snake.png");
         dot = iid.getImage();
     }
 
@@ -73,10 +80,15 @@ public class SnakeGame extends JPanel implements ActionListener {
         } else {
             g.setColor(Color.BLACK);
             g.setFont(new Font("Times New Roman", Font.BOLD, 30));
-            g.drawString("Game Over!", 290, 300);
-            g.drawString("Your score: " + score, 280, 330);
-        }
+            g.drawString("Game Over!", 290, 270);
+            g.drawString("Your score: " + score, 280, 300);
+            g.drawString("The best score: " + bestScore, 260, 330);
 
+            if (bestScore < score) {
+                g.drawString("You are the best! You got new best score!", 110, 360);
+                saveBestScore();
+            }
+        }
     }
 
     public void move() {
@@ -114,7 +126,6 @@ public class SnakeGame extends JPanel implements ActionListener {
                 inGame = false;
             }
         }
-
         if (x[0] > SIZE) {
             inGame = false;
         }
@@ -138,8 +149,6 @@ public class SnakeGame extends JPanel implements ActionListener {
         }
         repaint();
     }
-
-
 
     class FieldKeyListener extends KeyAdapter {
         @Override
@@ -166,6 +175,26 @@ public class SnakeGame extends JPanel implements ActionListener {
                 down = true;
                 left = false;
             }
+        }
+    }
+
+    private int readBestScore() {
+        int bestScore = 0;
+        try (Scanner scanner = new Scanner(new File(fileName));) {
+            bestScore = scanner.nextInt();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return bestScore;
+    }
+
+    private void saveBestScore() {
+        Path path = Paths.get(fileName);
+        byte[] strToBytes = String.valueOf(score).getBytes();
+        try {
+            Files.write(path, strToBytes);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
