@@ -8,7 +8,7 @@ public class SnakeInit extends JFrame {
         setTitle("Java Snake V0.1");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(800, 800);
-        setLocation(600, 100);
+        setLocation(400, 0);
         add(new SnakeGame());
         setVisible(true);
     }
