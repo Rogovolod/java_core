@@ -83,7 +83,6 @@ public class SnakeGame extends JPanel implements ActionListener {
             g.drawString("Game Over!", 290, 270);
             g.drawString("Your score: " + score, 280, 300);
             g.drawString("The best score: " + bestScore, 260, 330);
-
             if (bestScore < score) {
                 g.drawString("You are the best! You got new best score!", 110, 360);
                 saveBestScore();

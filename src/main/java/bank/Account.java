@@ -1,5 +1,6 @@
 package bank;
 
+import java.math.BigDecimal;
 import java.util.Objects;
 
 /**
@@ -16,9 +17,9 @@ public class Account {
     /**
      * поле balance отображает баланс доступных средств на счету пользователя
      */
-    private double balance;
+    private BigDecimal balance;
 
-    public Account(String requisite, double balance) {
+    public Account(String requisite, BigDecimal balance) {
         this.requisite = requisite;
         this.balance = balance;
     }
@@ -31,11 +32,11 @@ public class Account {
         this.requisite = requisite;
     }
 
-    public double getBalance() {
+    public BigDecimal getBalance() {
         return balance;
     }
 
-    public void setBalance(double balance) {
+    public void setBalance(BigDecimal balance) {
         this.balance = balance;
     }
 

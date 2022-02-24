@@ -8,11 +8,11 @@ with or without modification, are permitted provided that the
 following conditions are met:
 
 * Redistributions of source code must retain the above
-  copyright notice, this list of conditions and the
+  copyright notice, this core.list of conditions and the
   following disclaimer.
 
 * Redistributions in binary form must reproduce the above
-  copyright notice, this list of conditions and the
+  copyright notice, this core.list of conditions and the
   following disclaimer in the documentation and/or other
   materials provided with the distribution.
 
@@ -37,14 +37,14 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ******************************************************************************
 
-AN EXCEPTION applies to all files in the ./test/models-nonbsd folder.
+AN EXCEPTION applies to all core.files in the ./test/models-nonbsd folder.
 These are 3d models for testing purposes, from various free sources
 on the internet. They are - unless otherwise stated - copyright of
 their respective creators, which may impose additional requirements
 on the use of their work. For any of these models, see
 <model-name>.source.txt for more legal information. Contact us if you
 are a copyright holder and believe that we credited you inproperly or
-if you don't want your files to appear in the repository.
+if you don't want your core.files to appear in the repository.
 
 
 ******************************************************************************
@@ -57,9 +57,9 @@ Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
 
 * Redistributions of source code must retain the above copyright notice,
-  this list of conditions and the following disclaimer.
+  this core.list of conditions and the following disclaimer.
 * Redistributions in binary form must reproduce the above copyright notice,
-  this list of conditions and the following disclaimer in the documentation
+  this core.list of conditions and the following disclaimer in the documentation
   and/or other materials provided with the distribution.
 * Neither the name of Poly2Tri nor the names of its contributors may be
   used to endorse or promote products derived from this software without specific

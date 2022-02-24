@@ -1,5 +1,6 @@
 package bank;
 
+import java.math.BigDecimal;
 import java.util.*;
 
 /**
@@ -80,14 +81,14 @@ public class BankService {
      * @return true в случае успеха и false в случае невозможности перевода
      */
     public boolean transferMoney(String srcPassport, String srcRequisite,
-                                 String destPassport, String destRequisite, double amount) {
+                                 String destPassport, String destRequisite, BigDecimal amount) {
 
         Optional<Account> srs = findByRequisite(srcPassport, srcRequisite);
         Optional<Account> dest = findByRequisite(destPassport, destRequisite);
 
-        if (srs.isPresent() && dest.isPresent() && srs.get().getBalance() >= amount) {
-            srs.get().setBalance(srs.get().getBalance() - amount);
-            dest.get().setBalance(dest.get().getBalance() + amount);
+        if (srs.isPresent() && dest.isPresent() && srs.get().getBalance().compareTo(amount) >= 0) {
+            srs.get().setBalance(srs.get().getBalance().subtract(amount));
+            dest.get().setBalance(dest.get().getBalance().add(amount));
             return  true;
         }
         return false;

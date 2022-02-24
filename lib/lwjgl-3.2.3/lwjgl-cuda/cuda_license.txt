@@ -17,9 +17,9 @@ software development kit (“SDK”).
 
 Each SDK has its own set of software and materials, but here
 is a description of the types of items that may be included in
-a SDK: source code, header files, APIs, data sets and assets
+a SDK: source code, header core.files, APIs, data sets and assets
 (examples include images, textures, models, scenes, videos,
-native API input/output files), binary software, sample code,
+native API input/output core.files), binary software, sample code,
 libraries, utility programs, programming code and
 documentation.
 
@@ -192,7 +192,7 @@ SDK:
 
   5. You may not use the SDK in any manner that would cause it
     to become subject to an open source software license. As
-    examples, licenses that require as a condition of use,
+    examples, licenses that require as a core.condition of use,
     modification, and/or distribution that the SDK be:
 
       a. Disclosed or distributed in source code form;
@@ -521,7 +521,7 @@ in this SLA, shall have the meanings set forth below:
   11.
 
     “Open Source License” includes, without limitation, a
-    software license that requires as a condition of use,
+    software license that requires as a core.condition of use,
     modification, and/or distribution of such software that
     the Software be (i) disclosed or distributed in source
     code form; (ii) be licensed for the purpose of making

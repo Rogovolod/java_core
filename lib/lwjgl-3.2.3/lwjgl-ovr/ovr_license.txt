@@ -36,7 +36,7 @@ or any third parties; provided, however, Oculus retains all rights to the Oculus
 and the headers, libraries and APIs to the Platform Services and other tools made available
 by Oculus, including those that may be incorporated into your Developer Content.
 
-1.3 You agree that as a condition of this License you will design and distribute your Developer
+1.3 You agree that as a core.condition of this License you will design and distribute your Developer
 Content to ensure that your Developer Content and any software required to use your Developer
 Content does not, and you will not, alter or interfere with the normal operation, behavior
 or functionality of the Oculus hardware or software or Oculus Approved Products, including:
@@ -96,11 +96,11 @@ to https://developer.oculus.com.
 � "Oculus Platform Framework" means the suite of Oculus platform services, including but not
   limited to the Oculus file distribution and update system (enabling distribution and updates
   of Developer Content by Oculus, including through generated activation Keys), entitlement
-  system, and account authentication, which list may be changed from time to time in Oculus'
+  system, and account authentication, which core.list may be changed from time to time in Oculus'
   sole discretion.
 � "Application Services" means services provided by Oculus associated with the Platform,
   including but not limited to in-app purchasing, multiplayer matchmaking, friends, leader boards,
-  achievements, rooms, voice over IP and cloud saves, which list may be changed from time to time
+  achievements, rooms, voice over IP and cloud saves, which core.list may be changed from time to time
   in Oculus' sole discretion.
 � "Platform" means the Oculus virtual reality platform, including but not limited to the user
   experience, user interface, store, and social features, usable on Oculus approved hardware or
@@ -160,7 +160,7 @@ or other specific purposes. Such content will be clearly marked in the Oculus SD
 any included terms and conditions.
 
 4.2 Your use of third-party materials included in the Oculus SDK may be subject to other terms and
-conditions typically found in separate third-party license agreements or "READ ME" files included with
+conditions typically found in separate third-party license agreements or "READ ME" core.files included with
 such third-party materials. To the extent such other terms and conditions conflict with the terms and
 conditions of this License, the former will control with respect to the applicable third-party materials.
 

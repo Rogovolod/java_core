@@ -9,7 +9,7 @@ that the following conditions are met:
    and notices,
 
 2. Redistributions in binary form must reproduce applicable copyright
-   statements and notices, this list of conditions, and the following
+   statements and notices, this core.list of conditions, and the following
    disclaimer in the documentation and/or other materials provided
    with the distribution, and
 

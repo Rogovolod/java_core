@@ -55,7 +55,7 @@ public class Lwjgl {
         // Setup a key callback. It will be called every time a key is pressed, repeated or released.
         glfwSetKeyCallback(window, (window, key, scancode, action, mods) -> {
             if ( key == GLFW_KEY_ESCAPE && action == GLFW_RELEASE )
-                glfwSetWindowShouldClose(window, true); // We will detect this in the rendering loop
+                glfwSetWindowShouldClose(window, true); // We will detect this in the rendering core.loop
         });
 
         // Get the thread stack and push a new frame
@@ -97,7 +97,7 @@ public class Lwjgl {
         // Set the clear color
         glClearColor(0.1f, 0.4f, 1.0f, 0.0f);
 
-        // Run the rendering loop until the user has attempted to close
+        // Run the rendering core.loop until the user has attempted to close
         // the window or has pressed the ESCAPE key.
         while ( !glfwWindowShouldClose(window) ) {
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // clear the framebuffer
