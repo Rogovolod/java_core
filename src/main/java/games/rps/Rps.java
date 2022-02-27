@@ -1,4 +1,4 @@
-package rps;
+package games.rps;
 
 import java.util.Random;
 import java.util.Scanner;
