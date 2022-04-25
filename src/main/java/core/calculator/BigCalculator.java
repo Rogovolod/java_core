@@ -36,7 +36,7 @@ public class BigCalculator {
                 }
                 System.out.println(rsl);
             } catch (InputMismatchException i) {
-                System.out.println("Wrong input, just write numbers, it's core.calculator.");
+                System.out.println("Wrong input, just write numbers, it's calculator.");
             } catch (NoSuchElementException e) {
                 System.out.println("Wrong input, don't forget arithmetic sign and second number.");
             }
