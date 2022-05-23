@@ -9,7 +9,7 @@ import java.net.URL;
 public class SendHttpRequest {
 
     public static void createRequest() throws IOException {
-        URL url = new URL("https://javarush.ru/api/1.0/rest/me");
+        URL url = new URL("https:www.example.com");
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
         connection.setInstanceFollowRedirects(false);
@@ -37,7 +37,7 @@ public class SendHttpRequest {
     }
 
     public static void main(String[] args) throws IOException {
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < 2000; i++) {
             createRequest();
         }
         createRequest();
