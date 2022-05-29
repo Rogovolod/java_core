@@ -11,7 +11,6 @@ public class Rps {
     private static final Scanner scanner = new Scanner(System.in);
     private static final String[] data = new String[]{"камень", "ножницы", "бумагу"};
     private static Random rnd = new Random();
-    private static int number = rnd.nextInt(3);
 
     public static void main(String[] args) {
 
@@ -30,6 +29,7 @@ public class Rps {
                 playAgain();
             }
             input = scanner.next();
+            int number = rnd.nextInt(3);
             if (input.equals("камень")) {
                 System.out.println("Ваш опонент выбрал " + data[number]);
                 if (number == 0) {
