@@ -5,6 +5,7 @@ import games.practice2d.KeyHandler;
 
 import javax.imageio.ImageIO;
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -20,11 +21,13 @@ public class Player extends Entity {
     public Player(GamePanel gamePanel, KeyHandler keyHandler) {
         this.gamePanel = gamePanel;
         this.keyHandler = keyHandler;
-        screenX = gamePanel.SCREEN_WIDTH / 2;
-        screenY = gamePanel.SCREEN_HEIGHT / 2;
+        screenX = gamePanel.screenWidth / 2;
+        screenY = gamePanel.screenHeight / 2;
+        solidArea = new Rectangle(8, 16, 32, 32);
         setDefaultValues();
         getPlayerImage();
     }
+
 
     public void getPlayerImage() {
         try {
@@ -50,9 +53,9 @@ public class Player extends Entity {
     }
 
     public void setDefaultValues() {
-        worldX = gamePanel.TITLE_SIZE * 23;
-        worldY = gamePanel.TITLE_SIZE * 21;
-        speed = 4;
+        worldX = gamePanel.titleSize * 23;
+        worldY = gamePanel.titleSize * 21;
+        speed = gamePanel.WORLD_WIDTH / 600;
         direction = "down";
     }
 
@@ -60,22 +63,31 @@ public class Player extends Entity {
         if (keyHandler.upPressed || keyHandler.downPressed || keyHandler.rightPressed || keyHandler.leftPressed) {
             if (keyHandler.upPressed) {
                 direction = "up";
-                worldY -= speed;
             } else if (keyHandler.downPressed) {
                 direction = "down";
-                worldY += speed;
             } else if (keyHandler.rightPressed) {
                 direction = "right";
-                worldX += speed;
             } else {
                 direction = "left";
-                worldX -= speed;
             }
-            spriteCounter++;
-            if (spriteCounter > 12) {
-                if (spriteNumber == 1) spriteNumber = 2;
-                else if (spriteNumber == 2) spriteNumber = 1;
-                spriteCounter = 0;
+
+            collisionOn = false;
+            gamePanel.collisionChecker.checkTile(this);
+
+            if (!collisionOn) {
+                switch (direction) {
+                    case "up" -> worldY -= speed;
+                    case "down" -> worldY += speed;
+                    case "right" -> worldX += speed;
+                    case "left" -> worldX -= speed;
+                }
+
+                spriteCounter++;
+                if (spriteCounter > 12) {
+                    if (spriteNumber == 1) spriteNumber = 2;
+                    else if (spriteNumber == 2) spriteNumber = 1;
+                    spriteCounter = 0;
+                }
             }
         }
     }
@@ -100,7 +112,7 @@ public class Player extends Entity {
                 if (spriteNumber == 2) image = right2;
             }
         }
-        g2.drawImage(image, screenX, screenY, gamePanel.TITLE_SIZE, gamePanel.TITLE_SIZE, null);
+        g2.drawImage(image, screenX, screenY, gamePanel.titleSize, gamePanel.titleSize, null);
     }
 
 }

@@ -7,6 +7,12 @@ public class KeyHandler implements KeyListener {
 
     public boolean upPressed, downPressed, leftPressed, rightPressed;
 
+    private GamePanel gamePanel;
+
+    public KeyHandler(GamePanel gamePanel) {
+        this.gamePanel = gamePanel;
+    }
+
     @Override
     public void keyTyped(KeyEvent e) {
 
@@ -26,6 +32,12 @@ public class KeyHandler implements KeyListener {
         }
         if (code == KeyEvent.VK_D) {
             rightPressed = true;
+        }
+        if (code == KeyEvent.VK_UP) {
+            gamePanel.zoomInOut(1);
+        }
+        if (code == KeyEvent.VK_DOWN) {
+            gamePanel.zoomInOut(-1);
         }
     }
 

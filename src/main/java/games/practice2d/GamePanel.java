@@ -15,29 +15,30 @@ public class GamePanel extends JPanel implements Runnable {
     private final int ORIGINAL_TITLE_SIZE = 48; // 16x16 title
     private final int SCALE = 1;
 
-    public final int TITLE_SIZE = SCALE * ORIGINAL_TITLE_SIZE; // 48 * 48
-    public final int MAX_SCREEN_COLUMNS = 16;
-    public final int MAX_SCREEN_ROWS = 12;
-    public final int SCREEN_WIDTH = TITLE_SIZE * MAX_SCREEN_COLUMNS; // 768 pixels
-    public final int SCREEN_HEIGHT = TITLE_SIZE * MAX_SCREEN_ROWS; // 576 pixels
+    public int titleSize = SCALE * ORIGINAL_TITLE_SIZE; // 48 * 48
+    public int maxScreenColumns = 16;
+    public int maxScreenRows = 12;
+    public int screenWidth = titleSize * maxScreenColumns; // 768 pixels
+    public int screenHeight = titleSize * maxScreenRows; // 576 pixels
 
     //WORLD SETTINGS
     public final int MAX_WORLD_COLUMNS = 50;
     public final int MAX_WORLD_ROWS = 50;
-    public final int WORLD_WIDTH = TITLE_SIZE * MAX_WORLD_COLUMNS;
-    public final int WORLD_HEIGHT = TITLE_SIZE * MAX_WORLD_ROWS;
+    public final int WORLD_WIDTH = titleSize * MAX_WORLD_COLUMNS;
+    public final int WORLD_HEIGHT = titleSize * MAX_WORLD_ROWS;
 
 
-    private final TileManager tileManager = new TileManager(this);
-    private final KeyHandler keyHandler = new KeyHandler();
+    public final TileManager tileManager = new TileManager(this);
+    private final KeyHandler keyHandler = new KeyHandler(this);
+    public final CollisionChecker collisionChecker = new CollisionChecker(this);
     private Thread gameThread;
     public final Player player = new Player(this, keyHandler);
 
     // Frame per second
-    private int FPS = 60;
+    private final int FPS = 60;
 
     public GamePanel() {
-        this.setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT));
+        this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.BLACK);
         this.setDoubleBuffered(true);
         this.addKeyListener(keyHandler);
@@ -75,6 +76,20 @@ public class GamePanel extends JPanel implements Runnable {
             }
         }
 
+    }
+
+    public void zoomInOut(int zoom) {
+        int oldWorldWide = titleSize * MAX_WORLD_COLUMNS; // 2400
+        titleSize += zoom;
+        int newWorldWide = titleSize * MAX_WORLD_COLUMNS; // 2350
+        double multiple = (double) newWorldWide / oldWorldWide;
+        player.worldX = player.worldX * multiple;
+        player.worldY = player.worldY * multiple;
+        player.speed = newWorldWide / 600;
+
+//        System.out.println("title size: " + titleSize);
+//        System.out.println("new world wide: " + newWorldWide);
+//        System.out.println("player world x: " + player.worldX);
     }
 
     public void update() {
