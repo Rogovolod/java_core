@@ -1,4 +1,4 @@
-package loop;
+package core.loop;
 
 import java.util.*;
 import java.util.stream.Collectors;
