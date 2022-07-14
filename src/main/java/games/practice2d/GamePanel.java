@@ -12,7 +12,7 @@ import java.awt.Graphics2D;
 public class GamePanel extends JPanel implements Runnable {
 
     //Screen settings
-    private final int ORIGINAL_TITLE_SIZE = 48; // 16x16 title
+    private final int ORIGINAL_TITLE_SIZE = 48; // 48x48 title
     private final int SCALE = 1;
 
     public int titleSize = SCALE * ORIGINAL_TITLE_SIZE; // 48 * 48

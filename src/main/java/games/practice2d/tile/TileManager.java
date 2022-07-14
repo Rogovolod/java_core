@@ -45,7 +45,7 @@ public class TileManager {
     private void getTileImage() {
         try {
             tile[0] = new Tile();
-            tile[0].setImage(ImageIO.read(new File("src/main/java/games/practice2d/res/tiles/grass.png")));
+            tile[0].setImage(ImageIO.read(new File("src/main/java/games/practice2d/res/tiles/grass1.png")));
             tile[1] = new Tile();
             tile[1].setImage(ImageIO.read(new File("src/main/java/games/practice2d/res/tiles/wall.png")));
             tile[1].setCollision(true);
@@ -53,12 +53,15 @@ public class TileManager {
             tile[2].setImage(ImageIO.read(new File("src/main/java/games/practice2d/res/tiles/water.png")));
             tile[2].setCollision(true);
             tile[3] = new Tile();
-            tile[3].setImage(ImageIO.read(new File("src/main/java/games/practice2d/res/tiles/earth.png")));
+            tile[3].setImage(ImageIO.read(new File("src/main/java/games/practice2d/res/tiles/earth1.png")));
             tile[4] = new Tile();
-            tile[4].setImage(ImageIO.read(new File("src/main/java/games/practice2d/res/tiles/tree.png")));
+            tile[4].setImage(ImageIO.read(new File("src/main/java/games/practice2d/res/tiles/grassWithBigTree1.png")));
             tile[4].setCollision(true);
             tile[5] = new Tile();
-            tile[5].setImage(ImageIO.read(new File("src/main/java/games/practice2d/res/tiles/sand.png")));
+            tile[5].setImage(ImageIO.read(new File("src/main/java/games/practice2d/res/tiles/sand1.png")));
+            tile[6] = new Tile();
+//            tile[6].setImage(ImageIO.read(new File("src/main/java/games/practice2d/res/tiles/grassWithTree1.png")));
+//            tile[6].setCollision(true);
         } catch (IOException e) {
             e.printStackTrace();
         }
