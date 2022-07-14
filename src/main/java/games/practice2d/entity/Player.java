@@ -23,7 +23,7 @@ public class Player extends Entity {
         this.keyHandler = keyHandler;
         screenX = gamePanel.screenWidth / 2;
         screenY = gamePanel.screenHeight / 2;
-        solidArea = new Rectangle(8, 16, 16, 16);
+        solidArea = new Rectangle(12, 16, 22, 26);
         setDefaultValues();
         getPlayerImage();
     }
