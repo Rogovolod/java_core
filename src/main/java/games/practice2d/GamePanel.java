@@ -1,6 +1,7 @@
 package games.practice2d;
 
 import games.practice2d.entity.Player;
+import games.practice2d.object.SuperObject;
 import games.practice2d.tile.TileManager;
 
 import javax.swing.JPanel;
@@ -31,8 +32,11 @@ public class GamePanel extends JPanel implements Runnable {
     public final TileManager tileManager = new TileManager(this);
     private final KeyHandler keyHandler = new KeyHandler(this);
     public final CollisionChecker collisionChecker = new CollisionChecker(this);
+    public AssetSetter assetSetter = new AssetSetter(this);
     private Thread gameThread;
     public final Player player = new Player(this, keyHandler);
+    public SuperObject[] objects = new SuperObject[10];
+
 
     // Frame per second
     private final int FPS = 60;
@@ -43,6 +47,10 @@ public class GamePanel extends JPanel implements Runnable {
         this.setDoubleBuffered(true);
         this.addKeyListener(keyHandler);
         this.setFocusable(true);
+    }
+
+    public void setUpGame() {
+        assetSetter.setObject();
     }
 
     public void startGameThread() {
@@ -83,8 +91,8 @@ public class GamePanel extends JPanel implements Runnable {
         titleSize += zoom;
         int newWorldWide = titleSize * MAX_WORLD_COLUMNS; // 2350
         double multiple = (double) newWorldWide / oldWorldWide;
-        player.worldX = player.worldX * multiple;
-        player.worldY = player.worldY * multiple;
+        player.worldX = (int)(player.worldX * multiple);
+        player.worldY = (int)(player.worldY * multiple);
         player.speed = newWorldWide / 600;
 
 //        System.out.println("title size: " + titleSize);
@@ -101,7 +109,16 @@ public class GamePanel extends JPanel implements Runnable {
         Graphics2D g2 = (Graphics2D) g;
 
         tileManager.draw(g2);
+
+        //OBJECTS
+        for (int i = 0; i < objects.length; i++) {
+            if (objects[i] != null) {
+                objects[i].draw(g2, this);
+            }
+        }
+
         player.draw(g2);
+
         g2.dispose();
     }
 

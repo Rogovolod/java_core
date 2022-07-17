@@ -1,13 +1,30 @@
 package games.practice2d.object;
 
+import games.practice2d.GamePanel;
+
+import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class SuperObject {
 
-    private BufferedImage bufferedImage;
+    private BufferedImage image;
     private String name;
     private boolean collision;
     private int worldX, worldY;
+    public Rectangle solidArea = new Rectangle(0, 0, 48, 48);
+    public int solidAreaDefaultX = 0;
+    public int solidAreaDefaultY = 0;
+
+    public void draw(Graphics2D g2, GamePanel gamePanel) {
+        double screenX = worldX - gamePanel.player.worldX + gamePanel.player.screenX;
+        double screenY = worldY - gamePanel.player.worldY + gamePanel.player.screenY;
+        if (worldX + gamePanel.titleSize > gamePanel.player.worldX - gamePanel.player.screenX &&
+                worldX - gamePanel.titleSize < gamePanel.player.worldX + gamePanel.player.screenX &&
+                worldY + gamePanel.titleSize > gamePanel.player.worldY - gamePanel.player.screenY &&
+                worldY - gamePanel.titleSize < gamePanel.player.worldY + gamePanel.player.screenY) {
+            g2.drawImage(image, (int)screenX, (int)screenY, gamePanel.titleSize, gamePanel.titleSize, null);
+        }
+    }
 
     public int getWorldX() {
         return worldX;
@@ -25,12 +42,12 @@ public class SuperObject {
         this.worldY = worldY;
     }
 
-    public BufferedImage getBufferedImage() {
-        return bufferedImage;
+    public BufferedImage getImage() {
+        return image;
     }
 
-    public void setBufferedImage(BufferedImage bufferedImage) {
-        this.bufferedImage = bufferedImage;
+    public void setImage(BufferedImage image) {
+        this.image = image;
     }
 
     public String getName() {

@@ -4,12 +4,12 @@ import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
 
-public class Key extends SuperObject {
+public class Chest extends SuperObject {
 
-    public Key() {
-        setName("Key");
+    public Chest() {
+        setName("Chest");
         try {
-            setImage(ImageIO.read(new File("src/main/java/games/practice2d/res/items/key.png")));
+            setImage(ImageIO.read(new File("src/main/java/games/practice2d/res/items/chest.png")));
         } catch (IOException e) {
             e.printStackTrace();
         }
