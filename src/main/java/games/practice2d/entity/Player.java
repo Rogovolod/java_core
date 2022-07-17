@@ -31,22 +31,14 @@ public class Player extends Entity {
 
     public void getPlayerImage() {
         try {
-            up1 = ImageIO.read(new File("src/main/java/games/practice2d/res/pig/pig1up.png"));
-            up2 = ImageIO.read(new File("src/main/java/games/practice2d/res/pig/pig2up.png"));
-            down1 = ImageIO.read(new File("src/main/java/games/practice2d/res/pig/pig1d.png"));
-            down2 = ImageIO.read(new File("src/main/java/games/practice2d/res/pig/pig2d.png"));
-            left1 = ImageIO.read(new File("src/main/java/games/practice2d/res/pig/pig1left.png"));
-            left2 = ImageIO.read(new File("src/main/java/games/practice2d/res/pig/pig2left.png"));
-            right1 = ImageIO.read(new File("src/main/java/games/practice2d/res/pig/pig1right.png"));
-            right2 = ImageIO.read(new File("src/main/java/games/practice2d/res/pig/pig2right.png"));
-/*            up1 = ImageIO.read(new File("src/main/java/games/practice2d/res/carrot/carrotfback1.png"));
-            up2 = ImageIO.read(new File("src/main/java/games/practice2d/res/carrot/carrotfback2.png"));
-            down1 = ImageIO.read(new File("src/main/java/games/practice2d/res/carrot/carrotface1.png"));
-            down2 = ImageIO.read(new File("src/main/java/games/practice2d/res/carrot/carrotface2.png"));
-            left1 = ImageIO.read(new File("src/main/java/games/practice2d/res/carrot/carrotfleft1.png"));
-            left2 = ImageIO.read(new File("src/main/java/games/practice2d/res/carrot/carrotfleft2.png"));
-            right1 = ImageIO.read(new File("src/main/java/games/practice2d/res/carrot/carrotright1.png"));
-            right2 = ImageIO.read(new File("src/main/java/games/practice2d/res/carrot/carrotright2.png"));*/
+            up1 = ImageIO.read(new File("src/main/java/games/practice2d/res/knight/red/knightRedUp1.png"));
+            up2 = ImageIO.read(new File("src/main/java/games/practice2d/res/knight/red/knightRedUp2.png"));
+            down1 = ImageIO.read(new File("src/main/java/games/practice2d/res/knight/red/knightRedDown1.png"));
+            down2 = ImageIO.read(new File("src/main/java/games/practice2d/res/knight/red/knightRedDown2.png"));
+            left1 = ImageIO.read(new File("src/main/java/games/practice2d/res/knight/red/knighRedtleft1.png"));
+            left2 = ImageIO.read(new File("src/main/java/games/practice2d/res/knight/red/knightLeftRed2.png"));
+            right1 = ImageIO.read(new File("src/main/java/games/practice2d/res/knight/red/knighRedtRight1.png"));
+            right2 = ImageIO.read(new File("src/main/java/games/practice2d/res/knight/red/knightRightRed2.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
