@@ -1,5 +1,6 @@
 package games.practice2d;
 
+import games.practice2d.object.Boots;
 import games.practice2d.object.Chest;
 import games.practice2d.object.Door;
 import games.practice2d.object.Key;
@@ -40,6 +41,10 @@ public class AssetSetter {
         gamePanel.objects[6] = new Chest();
         gamePanel.objects[6].setWorldX(10 * gamePanel.titleSize);
         gamePanel.objects[6].setWorldY(7 * gamePanel.titleSize);
+
+        gamePanel.objects[7] = new Boots();
+        gamePanel.objects[7].setWorldX(37 * gamePanel.titleSize);
+        gamePanel.objects[7].setWorldY(42 * gamePanel.titleSize);
 
     }
 

@@ -4,6 +4,7 @@ import games.practice2d.GamePanel;
 import games.practice2d.KeyHandler;
 
 import javax.imageio.ImageIO;
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
@@ -15,6 +16,9 @@ public class Player extends Entity {
     public final int screenX;
     public final int screenY;
     public int keys = 0;
+    private int standCounter;
+    private boolean moving;
+    private int pixelCounter;
 
     private final GamePanel gamePanel;
     private final KeyHandler keyHandler;
@@ -25,7 +29,7 @@ public class Player extends Entity {
         screenX = gamePanel.screenWidth / 2;
         screenY = gamePanel.screenHeight / 2;
 
-        solidArea = new Rectangle(12, 16, 22, 26);
+        solidArea = new Rectangle(1, 1, 46, 46);
         solidAreaDefaultX = solidArea.x;
         solidAreaDefaultY = solidArea.y;
 
@@ -57,23 +61,33 @@ public class Player extends Entity {
     }
 
     public void update() {
-        if (keyHandler.upPressed || keyHandler.downPressed || keyHandler.rightPressed || keyHandler.leftPressed) {
-            if (keyHandler.upPressed) {
-                direction = "up";
-            } else if (keyHandler.downPressed) {
-                direction = "down";
-            } else if (keyHandler.rightPressed) {
-                direction = "right";
+
+        if (!moving) {
+            if (keyHandler.upPressed || keyHandler.downPressed || keyHandler.rightPressed || keyHandler.leftPressed) {
+                if (keyHandler.upPressed) {
+                    direction = "up";
+                } else if (keyHandler.downPressed) {
+                    direction = "down";
+                } else if (keyHandler.rightPressed) {
+                    direction = "right";
+                } else {
+                    direction = "left";
+                }
+                moving = true;
+                collisionOn = false;
+                gamePanel.collisionChecker.checkTile(this);
+
+                int objIndex = gamePanel.collisionChecker.checkObject(this, true);
+                pickUpObject(objIndex);
             } else {
-                direction = "left";
+                standCounter++;
+                if (standCounter == 20) {
+                    spriteNumber = 1;
+                    standCounter = 0;
+                }
             }
-
-            collisionOn = false;
-            gamePanel.collisionChecker.checkTile(this);
-
-            int objIndex = gamePanel.collisionChecker.checkObject(this, true);
-            pickUpObject(objIndex);
-
+        }
+        if (moving) {
             if (!collisionOn) {
                 switch (direction) {
                     case "up" -> worldY -= speed;
@@ -89,8 +103,14 @@ public class Player extends Entity {
                     spriteCounter = 0;
                 }
             }
+            pixelCounter += speed;
+            if (pixelCounter == 48) {
+                moving = false;
+                pixelCounter = 0;
+            }
         }
     }
+
 
     public void pickUpObject(int index) {
         if (index != 999) {
@@ -98,16 +118,31 @@ public class Player extends Entity {
             String objName = gamePanel.objects[index].getName();
             switch (objName) {
                 case "Key" -> {
+                    gamePanel.playSE(1);
                     keys++;
                     gamePanel.objects[index] = null;
-                    System.out.println("Keys: " + keys);
+                    gamePanel.ui.showMessage("You got a key!");
                 }
                 case "Door" -> {
                     if (keys > 0) {
+                        gamePanel.playSE(3);
                         keys--;
                         gamePanel.objects[index] = null;
-                        System.out.println("Keys: " + keys);
+                        gamePanel.ui.showMessage("You opened the door!");
+                    } else {
+                        gamePanel.ui.showMessage("You need a key!");
                     }
+                }
+                case "Boots" -> {
+                    gamePanel.playSE(2);
+                    speed += 2;
+                    gamePanel.objects[index] = null;
+                    gamePanel.ui.showMessage("Speed up!");
+                }
+                case "Chest" -> {
+                    gamePanel.stopMusic();
+                    gamePanel.playSE(4);
+                    gamePanel.ui.gameFinished = true;
                 }
             }
         }
@@ -134,6 +169,12 @@ public class Player extends Entity {
             }
         }
         g2.drawImage(image, screenX, screenY, gamePanel.titleSize, gamePanel.titleSize, null);
+
+        //print collision
+/*        g2.setColor(Color.red);
+        g2.drawRect(screenX + solidArea.x, screenY + solidArea.y, solidArea.width, solidArea.height);*/
+
+
     }
 
 }
