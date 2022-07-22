@@ -6,6 +6,8 @@ import java.awt.event.KeyListener;
 public class KeyHandler implements KeyListener {
 
     public boolean upPressed, downPressed, leftPressed, rightPressed;
+    public boolean checkDrawTime;
+
 
     private GamePanel gamePanel;
 
@@ -33,12 +35,22 @@ public class KeyHandler implements KeyListener {
         if (code == KeyEvent.VK_D) {
             rightPressed = true;
         }
-        if (code == KeyEvent.VK_UP) {
+/*        if (code == KeyEvent.VK_UP) {
             gamePanel.zoomInOut(1);
         }
         if (code == KeyEvent.VK_DOWN) {
             gamePanel.zoomInOut(-1);
+        }*/
+
+        //Debug
+        if (code == KeyEvent.VK_T) {
+            if(!checkDrawTime) {
+                checkDrawTime = true;
+            } else if(checkDrawTime) {
+                checkDrawTime = false;
+            }
         }
+
     }
 
     @Override

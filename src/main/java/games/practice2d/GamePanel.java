@@ -14,9 +14,8 @@ public class GamePanel extends JPanel implements Runnable {
 
     //Screen settings
     private final int ORIGINAL_TITLE_SIZE = 48; // 48x48 title
-    private final int SCALE = 1;
 
-    public int titleSize = SCALE * ORIGINAL_TITLE_SIZE; // 48 * 48
+    public int titleSize =ORIGINAL_TITLE_SIZE; // 48 * 48
     public int maxScreenColumns = 16;
     public int maxScreenRows = 12;
     public int screenWidth = titleSize * maxScreenColumns; // 768 pixels
@@ -90,7 +89,6 @@ public class GamePanel extends JPanel implements Runnable {
                 timer = 0;
             }
         }
-
     }
 
     public void zoomInOut(int zoom) {
@@ -102,9 +100,6 @@ public class GamePanel extends JPanel implements Runnable {
         player.worldY = (int)(player.worldY * multiple);
         player.speed = newWorldWide / 600;
 
-//        System.out.println("title size: " + titleSize);
-//        System.out.println("new world wide: " + newWorldWide);
-//        System.out.println("player world x: " + player.worldX);
     }
 
     public void update() {
@@ -115,7 +110,9 @@ public class GamePanel extends JPanel implements Runnable {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
 
-        tileManager.draw(g2);
+        long drawStart = System.nanoTime(); // DEBUG
+
+        tileManager.draw(g2); // Tile
 
         //OBJECTS
         for (int i = 0; i < objects.length; i++) {
@@ -124,9 +121,16 @@ public class GamePanel extends JPanel implements Runnable {
             }
         }
 
-        player.draw(g2);
+        player.draw(g2); // Player
+        ui.draw(g2); // UI
 
-        ui.draw(g2);
+        // DEBUG
+        if (keyHandler.checkDrawTime) {
+            long passedDrawTime = System.nanoTime() - drawStart;
+            g2.setColor(Color.white);
+            g2.drawString("Draw Time: " + passedDrawTime, 10, 400);
+            System.out.println(passedDrawTime);
+        }
 
         g2.dispose();
     }

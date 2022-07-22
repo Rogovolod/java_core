@@ -2,6 +2,7 @@ package games.practice2d.entity;
 
 import games.practice2d.GamePanel;
 import games.practice2d.KeyHandler;
+import games.practice2d.object.Chest;
 
 import javax.imageio.ImageIO;
 import java.awt.Color;
@@ -61,7 +62,6 @@ public class Player extends Entity {
     }
 
     public void update() {
-
         if (!moving) {
             if (keyHandler.upPressed || keyHandler.downPressed || keyHandler.rightPressed || keyHandler.leftPressed) {
                 if (keyHandler.upPressed) {
@@ -95,7 +95,6 @@ public class Player extends Entity {
                     case "right" -> worldX += speed;
                     case "left" -> worldX -= speed;
                 }
-
                 spriteCounter++;
                 if (spriteCounter > 12) {
                     if (spriteNumber == 1) spriteNumber = 2;
@@ -126,10 +125,19 @@ public class Player extends Entity {
                 case "Door" -> {
                     if (keys > 0) {
                         gamePanel.playSE(3);
-                        keys--;
-                        gamePanel.objects[index] = null;
+                        try {
+                            if (gamePanel.objects[index].isCollision()) {
+                                gamePanel.objects[index].setImage(ImageIO.read(new File("src/main/java/games/practice2d/res/items/door3.png")));
+                                gamePanel.objects[index].setCollision(false);
+                                keys--;
+                            }
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                            gamePanel.objects[index] = null;
+                            keys--;
+                        }
                         gamePanel.ui.showMessage("You opened the door!");
-                    } else {
+                    } else if (gamePanel.objects[index].isCollision()){
                         gamePanel.ui.showMessage("You need a key!");
                     }
                 }
@@ -141,6 +149,11 @@ public class Player extends Entity {
                 }
                 case "Chest" -> {
                     gamePanel.stopMusic();
+                    try {
+                        gamePanel.objects[index].setImage(ImageIO.read(new File("src/main/java/games/practice2d/res/items/chest2.png")));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                     gamePanel.playSE(4);
                     gamePanel.ui.gameFinished = true;
                 }
@@ -168,7 +181,7 @@ public class Player extends Entity {
                 if (spriteNumber == 2) image = right2;
             }
         }
-        g2.drawImage(image, screenX, screenY, gamePanel.titleSize, gamePanel.titleSize, null);
+        g2.drawImage(image, screenX, screenY, null);
 
         //print collision
 /*        g2.setColor(Color.red);

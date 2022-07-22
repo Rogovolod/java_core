@@ -10,7 +10,7 @@ public class Door extends SuperObject {
         setCollision(true);
         setName("Door");
         try {
-            setImage(ImageIO.read(new File("src/main/java/games/practice2d/res/items/door.png")));
+            setImage(ImageIO.read(new File("src/main/java/games/practice2d/res/items/door2.png")));
         } catch (IOException e) {
             e.printStackTrace();
         }

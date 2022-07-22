@@ -11,7 +11,7 @@ import java.text.DecimalFormat;
 public class UI {
 
     private final GamePanel gamePanel;
-    private final Font arialPlane40 = new Font("Arial", Font.PLAIN, 40);
+    private final Font arialPlane40 = new Font("Times new roman", Font.PLAIN, 40);
     private final Font arialBold80 = new Font("Arial", Font.BOLD, 80);
     private final BufferedImage keyImage;
     private boolean messageOn;
