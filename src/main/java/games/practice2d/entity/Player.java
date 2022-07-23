@@ -124,19 +124,21 @@ public class Player extends Entity {
                 }
                 case "Door" -> {
                     if (keys > 0) {
-                        gamePanel.playSE(3);
                         try {
                             if (gamePanel.objects[index].isCollision()) {
+                                gamePanel.ui.showMessage("You opened the door!");
+                                gamePanel.playSE(3);
                                 gamePanel.objects[index].setImage(ImageIO.read(new File("src/main/java/games/practice2d/res/items/door3.png")));
                                 gamePanel.objects[index].setCollision(false);
                                 keys--;
                             }
                         } catch (IOException e) {
                             e.printStackTrace();
+                            gamePanel.ui.showMessage("You opened the door!");
+                            gamePanel.playSE(3);
                             gamePanel.objects[index] = null;
                             keys--;
                         }
-                        gamePanel.ui.showMessage("You opened the door!");
                     } else if (gamePanel.objects[index].isCollision()){
                         gamePanel.ui.showMessage("You need a key!");
                     }
