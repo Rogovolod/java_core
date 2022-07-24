@@ -28,7 +28,7 @@ public class AssetSetter {
 
         gamePanel.objects[3] = new Door();
         gamePanel.objects[3].setWorldX(10 * gamePanel.titleSize);
-        gamePanel.objects[3].setWorldY(11 * gamePanel.titleSize);
+        gamePanel.objects[3].setWorldY(12 * gamePanel.titleSize);
 
         gamePanel.objects[4] = new Door();
         gamePanel.objects[4].setWorldX(8 * gamePanel.titleSize);
@@ -40,7 +40,7 @@ public class AssetSetter {
 
         gamePanel.objects[6] = new Chest();
         gamePanel.objects[6].setWorldX(10 * gamePanel.titleSize);
-        gamePanel.objects[6].setWorldY(7 * gamePanel.titleSize);
+        gamePanel.objects[6].setWorldY(8 * gamePanel.titleSize);
 
         gamePanel.objects[7] = new Boots();
         gamePanel.objects[7].setWorldX(37 * gamePanel.titleSize);

@@ -2,10 +2,8 @@ package games.practice2d.entity;
 
 import games.practice2d.GamePanel;
 import games.practice2d.KeyHandler;
-import games.practice2d.object.Chest;
 
 import javax.imageio.ImageIO;
-import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
@@ -37,7 +35,6 @@ public class Player extends Entity {
         setDefaultValues();
         getPlayerImage();
     }
-
 
     public void getPlayerImage() {
         try {
@@ -110,7 +107,6 @@ public class Player extends Entity {
         }
     }
 
-
     public void pickUpObject(int index) {
         if (index != 999) {
 
@@ -139,7 +135,7 @@ public class Player extends Entity {
                             gamePanel.objects[index] = null;
                             keys--;
                         }
-                    } else if (gamePanel.objects[index].isCollision()){
+                    } else if (gamePanel.objects[index].isCollision()) {
                         gamePanel.ui.showMessage("You need a key!");
                     }
                 }
