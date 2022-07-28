@@ -4,6 +4,7 @@ import games.practice2d.object.Boots;
 import games.practice2d.object.Chest;
 import games.practice2d.object.Door;
 import games.practice2d.object.Key;
+import games.practice2d.object.Rock;
 
 public class AssetSetter {
 
@@ -36,7 +37,7 @@ public class AssetSetter {
 
         gamePanel.objects[5] = new Door();
         gamePanel.objects[5].setWorldX(12 * gamePanel.titleSize);
-        gamePanel.objects[5].setWorldY(22 * gamePanel.titleSize);
+        gamePanel.objects[5].setWorldY(23 * gamePanel.titleSize);
 
         gamePanel.objects[6] = new Chest();
         gamePanel.objects[6].setWorldX(10 * gamePanel.titleSize);
@@ -45,6 +46,10 @@ public class AssetSetter {
         gamePanel.objects[7] = new Boots();
         gamePanel.objects[7].setWorldX(37 * gamePanel.titleSize);
         gamePanel.objects[7].setWorldY(42 * gamePanel.titleSize);
+
+        gamePanel.objects[8] = new Rock();
+        gamePanel.objects[8].setWorldX(25 * gamePanel.titleSize);
+        gamePanel.objects[8].setWorldY(19 * gamePanel.titleSize);
 
     }
 

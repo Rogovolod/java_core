@@ -62,8 +62,8 @@ public class TileManager {
         setupImage(8, "grass0");
         setupImage(9, "grass0");
 
-        setupImage(10 , "grass0", false);
-        setupImage(11 , "grass0", false);
+        setupImage(10 , "grass2", false);
+        setupImage(11 , "grass1", false);
         setupImage(12 , "waternew7", true);
         setupImage(13 , "waternew14", true);
         setupImage(14 , "waternew1", true);
@@ -78,22 +78,26 @@ public class TileManager {
         setupImage(23 , "waternew5", true);
         setupImage(24 , "waternew9", true);
         setupImage(25 , "waternew10", false);
-        setupImage(26 , "sand1", false);
-        setupImage(27 , "sand1", false);
-        setupImage(28 , "sand1", false);
-        setupImage(29 , "sand1", false);
-        setupImage(30 , "sand1", false);
-        setupImage(31 , "sand1", false);
-        setupImage(32 , "sand1", false);
-        setupImage(33 , "sand1", false);
-        setupImage(34 , "sand1", false);
-        setupImage(35 , "sand1", false);
-        setupImage(36 , "sand1", false);
-        setupImage(37 , "sand1", false);
-        setupImage(38 , "sand1", false);
+        setupImage(26 , "sendnew7", false);
+        setupImage(27 , "sendnew1", false);
+        setupImage(28 , "sendnew2", false);
+        setupImage(29 , "sendnew3", false);
+        setupImage(30 , "sendnew6", false);
+        setupImage(31 , "sendnew8", false);
+        setupImage(32 , "sendnew11", false);
+        setupImage(33 , "sendnew12", false);
+        setupImage(34 , "sendnew13", false);
+        setupImage(35 , "sendnew4", false);
+        setupImage(36 , "sendnew5", false);
+        setupImage(37 , "sendnew9", false);
+        setupImage(38 , "sendnew10", false);
         setupImage(39 , "earth1", false);
         setupImage(40 , "wall", true);
-        setupImage(41 , "treeC", true);
+        setupImage(41 , "treeN1", true);
+        setupImage(42 , "grass3", false);
+        setupImage(43 , "treeN2", true);
+        setupImage(44 , "rock5", true);
+
 
     }
 

@@ -14,7 +14,7 @@ public class Player extends Entity {
 
     public final int screenX;
     public final int screenY;
-    public int keys = 0;
+    public int keys = 10;
     private int standCounter;
     private boolean moving;
     private int pixelCounter;
