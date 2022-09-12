@@ -19,11 +19,11 @@ public class SendMultipleHttpRequest {
 
     public static class MultipleThreadRequest extends Thread {
 
-        private AtomicBoolean running = new AtomicBoolean(true);
+        private final AtomicBoolean running = new AtomicBoolean(true);
         private final String request = "https://www.igogo.gnom/"; // example http
         private final URL url;
 
-        String param = null;
+        String param;
 
         public MultipleThreadRequest() throws Exception {
             url = new URL(request);
