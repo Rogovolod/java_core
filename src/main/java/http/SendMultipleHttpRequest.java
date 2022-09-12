@@ -34,14 +34,14 @@ public class SendMultipleHttpRequest {
         public void run() {
             while (running.get()) {
                 try {
-                    sentHttp();
+                    sendHttp();
                 } catch (Exception e) {
                     e.getStackTrace();
                 }
             }
         }
 
-        public void sentHttp() throws Exception {
+        public void sendHttp() throws Exception {
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setDoOutput(true);
             connection.setDoInput(true);
