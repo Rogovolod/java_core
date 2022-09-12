@@ -34,24 +34,21 @@ public class SendMultipleHttpRequest {
         public void run() {
             while (running.get()) {
                 try {
-                    attack();
+                    sentHttp();
                 } catch (Exception e) {
                     e.getStackTrace();
                 }
             }
         }
 
-        public void attack() throws Exception {
+        public void sentHttp() throws Exception {
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setDoOutput(true);
             connection.setDoInput(true);
             connection.setRequestMethod("POST");
-//            connection.setRequestProperty("charset", "utf-8");
             connection.setRequestProperty("Host", "localhost");
-//            connection.setRequestProperty("Host", "https://www.igogo.gnom/");
             connection.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:8.0) Gecko/20100101 Firefox/8.0");
             connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-//            connection.setRequestProperty("Content-Type", "text/html");
             connection.setRequestProperty("Content-Length", param);
             System.out.println(this + " " + connection.getResponseCode());
             connection.getInputStream();
