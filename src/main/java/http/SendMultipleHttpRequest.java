@@ -23,7 +23,7 @@ public class SendMultipleHttpRequest {
         private final String request = "https://www.igogo.gnom/"; // example http
         private final URL url;
 
-        String param;
+        private final String param;
 
         public MultipleThreadRequest() throws Exception {
             url = new URL(request);
