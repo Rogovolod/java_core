@@ -1,7 +1,5 @@
 package interview;
 
-import static java.lang.Math.abs;
-
 public class FindNearestToTen {
 
     public static int find(int[] array) {
@@ -13,7 +11,7 @@ public class FindNearestToTen {
             if (num < 10 && num > lessThenTen)
                 lessThenTen = num;
         }
-        return abs(10 - moreThenTen) > abs(10 - lessThenTen) ? lessThenTen : moreThenTen;
+        return moreThenTen - 10 <= 10 - lessThenTen ? moreThenTen : lessThenTen;
     }
 
 }
