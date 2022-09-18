@@ -1,8 +1,11 @@
 package leetCode;
 /**
-* Given collection of Strings null, "yuLia", "  ", "borjA", "Ceba", "", "aleNa", "daRek", "FranK", null, "yulia"
-* Need to implement method that returns String “Alena - Borja - Ceba - Darek - Frank – Yulia"
-*/
+ * Given collection of Strings [null, "yuLia", "  ", "borjA", "Ceba", "", "aleNa", "daRek", "FranK", null, "yulia"]
+ * Need to implement method that returns String “Alena - Borja - Ceba - Darek - Frank – Yulia"
+ * <p>
+ * Дана коллекция(или массив) строк: [null, "yuLia", "  ", "borjA", "Ceba", "", "aleNa", "daRek", "FranK", null, "yulia"]
+ * Необходимо преобразовать метод, что бы возвращалась строка(не массив!) “Alena - Borja - Ceba - Darek - Frank – Yulia"
+ */
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
