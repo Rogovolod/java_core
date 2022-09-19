@@ -42,4 +42,11 @@ public class SpacesBetweenStringTest {
         assertEquals( "a___b___c", actual);
     }
 
+    @Test
+    public void refactorSpacesCase6() {
+        var testStr = "__a_b_c";
+        var actual = refactorSpaces(testStr);
+        assertEquals( "a__b__c", actual);
+    }
+
 }
