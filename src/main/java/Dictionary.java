@@ -6,22 +6,6 @@ import java.util.Map;
 public class Dictionary {
 
     public static Map<String, List<String>> collectData(String[] strings) {
-        Map<String, List<String>> rsl = new HashMap<>();
-        List<String> list = new ArrayList<>();
-        String s = "";
-        for (int i = 0; i < strings.length; i++) {
-            if (rsl.containsKey(String.valueOf(strings[i].charAt(0)))) {
-                rsl.get(String.valueOf(strings[i].charAt(0))).add(strings[i]);
-            } else {
-                list.clear();
-                rsl.put(String.valueOf(strings[i].charAt(0)), list);
-                rsl.get(String.valueOf(strings[i].charAt(0))).add(strings[i]);
-            }
-        }
-        return rsl;
-    }
-
-    public static Map<String, List<String>> collectData2(String[] strings) {
         Map<String, List<String>> map = new HashMap<>();
         for (int i = 0; i < strings.length; i++) {
             if(!map.containsKey(String.valueOf(strings[i].charAt(0)))) {
