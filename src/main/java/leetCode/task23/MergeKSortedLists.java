@@ -36,18 +36,4 @@ public class MergeKSortedLists {
         return listNode.next;
     }
 
-
-
-    public static void main(String[] args) {
-        ListNode[] lists = new ListNode[3];
-        lists[0] = new ListNode(1, new ListNode(4, new ListNode(5)));
-        lists[1] = new ListNode(1, new ListNode(3, new ListNode(4)));
-        lists[2] = new ListNode(2, new ListNode(6));
-        System.out.println(mergeKLists(lists));
-
-        ListNode[] lists2 = new ListNode[1];
-        lists2[0] = null;
-        System.out.println(mergeKLists(lists2));
-    }
-
 }
