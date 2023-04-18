@@ -5,13 +5,6 @@ import java.util.Comparator;
 
 public class MergeKSortedLists {
 
-    private static boolean checkIfNull(ListNode[] lists) {
-        boolean checkIfAllNull = true;
-        for (ListNode node : lists)
-            if (node != null) return false;
-        return checkIfAllNull;
-    }
-
     public static ListNode mergeKLists(ListNode[] lists) {
         if (lists.length == 0) return null;
         if (checkIfNull(lists)) return null;
@@ -24,6 +17,13 @@ public class MergeKSortedLists {
         }
         listForSorting.sort(Comparator.naturalOrder());
         return createListNode(listForSorting);
+    }
+
+    private static boolean checkIfNull(ListNode[] lists) {
+        boolean checkIfAllNull = true;
+        for (ListNode node : lists)
+            if (node != null) return false;
+        return checkIfAllNull;
     }
 
     private static ListNode createListNode(ArrayList<Integer> sortedList) {
